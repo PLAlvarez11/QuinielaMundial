@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import PrizeDistribution
+from .serializers import PrizeDistributionSerializer
 
-# Create your views here.
+
+class PrizeDistributionViewSet(viewsets.ModelViewSet):
+    queryset = PrizeDistribution.objects.select_related(
+        'league',
+        'member'
+    ).all()
+
+    serializer_class = PrizeDistributionSerializer
