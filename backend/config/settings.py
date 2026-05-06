@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'leagues_app',
     'rest_framework',
     'users',
+    'rest_framework',
     'catalogo',
     'prizes',
 ]
