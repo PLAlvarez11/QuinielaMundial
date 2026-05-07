@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-qp_9j8yho30aj&w%8$5t2_)_a(#t!54djjys(4n2u0tkrb47oy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "0.0.0.0",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -38,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'leagues_app',
+    'rest_framework',
     'users',
 ]
 
@@ -117,3 +122,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+# --- Custom user model ---
+AUTH_USER_MODEL = 'users.CustomUser'
+
+
+# --- Django REST Framework ---
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'users.authentication.SessionTokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
+
+# Django 3.2+ default; evita warnings en apps nuevas
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
