@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/', include('users.urls')),
     path('api/prizes/', include('prizes.urls')),
     path('api/predictions/', include('prediction_engine.urls')),
+    path('tabla-posiciones/', include('tabla_posiciones.urls')),
 ]

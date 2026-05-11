@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'catalogo',
     'prizes',
     'prediction_engine',
+    'tabla_posiciones',
 ]
 
 MIDDLEWARE = [
