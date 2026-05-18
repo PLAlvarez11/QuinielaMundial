@@ -1,0 +1,111 @@
+/* Estilos Mundialistas 2026 */
+
+:root {
+  --primary-green: #1a472a;
+  --accent-gold: #ffd60a;
+  --text-dark: #333;
+  --border-light: #e0e0e0;
+  --error-color: #dc3545;
+  --success-color: #28a745;
+}
+
+/* Inputs */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  transition: all 0.3s ease !important;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+  border-color: var(--accent-gold) !important;
+  box-shadow: 0 0 8px rgba(255, 214, 10, 0.3) !important;
+  outline: none;
+}
+
+/* Botones Submit */
+button[type="submit"] {
+  transition: all 0.3s ease !important;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: var(--accent-gold) !important;
+  color: var(--primary-green) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 214, 10, 0.4) !important;
+}
+
+button[type="submit"]:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Botones de Link */
+button[type="button"] {
+  transition: all 0.3s ease;
+}
+
+button[type="button"]:hover {
+  opacity: 0.8;
+}
+
+/* Botón Logout */
+.logout-button {
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c82333 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4) !important;
+}
+
+/* Animaciones de entrada */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-card {
+  animation: slideInUp 0.5s ease-out;
+}
+
+/* Efecto de cancha de fútbol */
+@keyframes grass-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 4px 0;
+  }
+}
+
+/* Mensajes de éxito/error */
+.success-message {
+  animation: slideInUp 0.3s ease-out;
+}
+
+.error-message {
+  animation: slideInUp 0.3s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 20px !important;
+  }
+
+  .form-title {
+    font-size: 22px !important;
+  }
+
+  .page-title {
+    font-size: 24px !important;
+  }
+}
