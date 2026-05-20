@@ -18,13 +18,13 @@ class PrizeDistribution(models.Model):
     ]
 
     league = models.ForeignKey(
-        'leagues.League',
+        'leagues_app.League',
         on_delete=models.PROTECT,
         related_name='prize_distributions'
     )
 
     member = models.ForeignKey(
-        'leagues.LeagueMember',
+        'leagues_app.LeagueMember',
         on_delete=models.PROTECT,
         related_name='prize_distributions'
     )
