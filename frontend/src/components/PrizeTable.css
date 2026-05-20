@@ -1,0 +1,219 @@
+.table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table th {
+  padding: 15px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #495057;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #dee2e6;
+  transition: background-color 0.2s;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.table td {
+  padding: 15px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.table-row {
+  transition: all 0.2s ease;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+/* Badges y estilos */
+.badge-league {
+  display: inline-block;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.position-badge {
+  display: inline-block;
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.type-league {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.type-global {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
+.type-tie {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.member-name {
+  font-weight: 500;
+  color: #212529;
+}
+
+.amount-value {
+  font-weight: 600;
+  color: #28a745;
+  font-size: 15px;
+}
+
+.date-value {
+  color: #6c757d;
+  font-size: 13px;
+}
+
+.actions-column {
+  width: 120px;
+  text-align: center;
+}
+
+.actions-cell {
+  text-align: center;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-action {
+  background: none;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 6px 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: #495057;
+}
+
+.btn-action:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-edit:hover:not(:disabled) {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border-color: #1976d2;
+}
+
+.btn-delete:hover:not(:disabled) {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.btn-action:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.empty-state {
+  padding: 60px 20px;
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.empty-state h3 {
+  color: #212529;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.empty-state p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .table th,
+  .table td {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .table th {
+    font-size: 11px;
+  }
+
+  .badge-league,
+  .position-badge,
+  .type-badge {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .btn-action {
+    padding: 4px 6px;
+  }
+}
