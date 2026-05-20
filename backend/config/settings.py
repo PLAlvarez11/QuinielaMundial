@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'corsheaders',
     'leagues_app',
+    'rest_framework',
     'users',
+    'prizes',
 ]
 
 MIDDLEWARE = [
