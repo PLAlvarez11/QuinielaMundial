@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'leagues_app',
     'rest_framework',
-    'corsheaders',
-    'leagues_app',
     'users',
     'prizes',
 ]
