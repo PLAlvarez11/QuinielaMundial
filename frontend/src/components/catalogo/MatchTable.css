@@ -1,0 +1,123 @@
+.table-responsive {
+  overflow-x: auto;
+}
+
+.match-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.match-table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.match-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+}
+
+.match-table th:hover {
+  background-color: #e9ecef;
+}
+
+.match-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.match-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.match-table .score {
+  font-weight: 600;
+  text-align: center;
+}
+
+.match-table .status-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+}
+
+.match-table .status-scheduled {
+  background-color: #cfe2ff;
+  color: #084298;
+}
+
+.match-table .status-in_progress {
+  background-color: #fff3cd;
+  color: #664d03;
+}
+
+.match-table .status-finished {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.match-table .status-cancelled {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.match-table .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.match-table .btn-edit,
+.match-table .btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.match-table .btn-edit:hover {
+  background-color: #e7f3ff;
+}
+
+.match-table .btn-delete:hover {
+  background-color: #ffe7e7;
+}
+
+.loading,
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .match-table {
+    font-size: 0.85rem;
+  }
+
+  .match-table th,
+  .match-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .match-table .actions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,88 @@
+.table-responsive {
+  overflow-x: auto;
+}
+
+.tournament-stage-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tournament-stage-table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.tournament-stage-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tournament-stage-table th:hover {
+  background-color: #e9ecef;
+}
+
+.tournament-stage-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.tournament-stage-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.tournament-stage-table .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tournament-stage-table .btn-edit,
+.tournament-stage-table .btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.tournament-stage-table .btn-edit:hover {
+  background-color: #e7f3ff;
+}
+
+.tournament-stage-table .btn-delete:hover {
+  background-color: #ffe7e7;
+}
+
+.loading,
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .tournament-stage-table {
+    font-size: 0.9rem;
+  }
+
+  .tournament-stage-table th,
+  .tournament-stage-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .tournament-stage-table .actions {
+    flex-direction: column;
+  }
+}

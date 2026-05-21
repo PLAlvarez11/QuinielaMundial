@@ -312,6 +312,119 @@ curl http://localhost:8000/api/prizes/prize-distributions/
 ```
 [ ] Verificar que hay datos en backend
 [ ] Crear datos en admin Django
+```
+
+---
+
+# ✅ Checklist - CRUD Catálogo del Mundial (NUEVO)
+
+## 📋 Módulo M5 - Catálogo (COMPLETADO)
+
+### Archivos Base
+- [x] ✅ `src/api/catalogoApi.js` (35 funciones CRUD)
+- [x] ✅ `src/routes/CatalogoRoutes.jsx` (21 rutas)
+
+### Componentes Catálogo (14 archivos)
+- [x] ✅ `src/components/catalogo/VenueForm.jsx` + CSS
+- [x] ✅ `src/components/catalogo/VenueTable.jsx` + CSS
+- [x] ✅ `src/components/catalogo/StadiumForm.jsx` + CSS
+- [x] ✅ `src/components/catalogo/StadiumTable.jsx` + CSS
+- [x] ✅ `src/components/catalogo/CountryForm.jsx` + CSS
+- [x] ✅ `src/components/catalogo/CountryTable.jsx` + CSS
+- [x] ✅ `src/components/catalogo/TournamentStageForm.jsx` + CSS
+- [x] ✅ `src/components/catalogo/TournamentStageTable.jsx` + CSS
+- [x] ✅ `src/components/catalogo/GroupForm.jsx` + CSS
+- [x] ✅ `src/components/catalogo/GroupTable.jsx` + CSS
+- [x] ✅ `src/components/catalogo/GroupCountryForm.jsx` + CSS
+- [x] ✅ `src/components/catalogo/GroupCountryTable.jsx` + CSS
+- [x] ✅ `src/components/catalogo/MatchForm.jsx` + CSS
+- [x] ✅ `src/components/catalogo/MatchTable.jsx` + CSS
+
+### Páginas Catálogo (42 archivos)
+- [x] ✅ `src/pages/catalogo/VenueList.jsx`, VenueCreate.jsx, VenueEdit.jsx + CSS
+- [x] ✅ `src/pages/catalogo/StadiumList.jsx`, ... + CSS
+- [x] ✅ `src/pages/catalogo/CountryList.jsx`, ... + CSS
+- [x] ✅ `src/pages/catalogo/TournamentStageList.jsx`, ... + CSS
+- [x] ✅ `src/pages/catalogo/GroupList.jsx`, ... + CSS
+- [x] ✅ `src/pages/catalogo/GroupCountryList.jsx`, ... + CSS
+- [x] ✅ `src/pages/catalogo/MatchList.jsx`, MatchCreate.jsx, MatchEdit.jsx + CSS
+
+### Integración M5
+- [x] ✅ `src/pages/M5WorldCupAdmin/main.jsx` (actualizado)
+- [x] ✅ `src/pages/M5WorldCupAdmin/Catalogo.css` (estilos)
+
+### Documentación Catálogo
+- [x] ✅ `CATALOGO_QUICK_START.md`
+- [x] ✅ `CATALOGO_INTEGRATION.md`
+- [x] ✅ `CATALOGO_CHECKLIST.md`
+- [x] ✅ `CATALOGO_EXECUTIVE_SUMMARY.md`
+- [x] ✅ `DOCUMENTATION_INDEX.md`
+- [x] ✅ `QUICK_COMMANDS.md`
+- [x] ✅ `src/pages/catalogo/README.md`
+
+---
+
+## 🔧 Verificar Integración Catálogo
+
+### Rutas Funcionan
+- [ ] `http://localhost:5173/catalogo/venues` - Sedes
+- [ ] `http://localhost:5173/catalogo/stadiums` - Estadios
+- [ ] `http://localhost:5173/catalogo/countries` - Países
+- [ ] `http://localhost:5173/catalogo/tournament-stages` - Fases
+- [ ] `http://localhost:5173/catalogo/groups` - Grupos
+- [ ] `http://localhost:5173/catalogo/group-countries` - Asignaciones
+- [ ] `http://localhost:5173/catalogo/matches` - Partidos
+
+### Funcionalidades Catálogo
+- [ ] Búsqueda filtra en tiempo real
+- [ ] Ordenamiento bidireccional funciona
+- [ ] Crear nuevo registro funciona
+- [ ] Editar registro funciona
+- [ ] Eliminar con confirmación funciona
+- [ ] Selects dinámicos cargan datos
+- [ ] Validaciones previenen datos inválidos
+- [ ] Toasts muestran éxito/error
+- [ ] Modal de confirmación aparece al eliminar
+- [ ] Sidebar colapsable funciona
+
+### Integración Backend
+- [ ] Backend Django corriendo en :8000
+- [ ] CORS habilitado
+- [ ] Serializers con campos anidados
+- [ ] ViewSets implementados
+- [ ] URLs incluidas en catalogo/urls.py
+- [ ] Migraciones aplicadas
+
+---
+
+## 📊 Resumen Final
+
+| Elemento | Prize Distribution | Catálogo |
+|----------|-------------------|----------|
+| **Entidades** | 1 | 7 |
+| **Archivos** | 20+ | 62+ |
+| **Funciones API** | 5 | 35 |
+| **Componentes** | 7 | 14 |
+| **Páginas** | 3 | 21 |
+| **Rutas** | 3 | 21 |
+| **Status** | ✅ Completado | ✅ Completado |
+
+**Total del Proyecto**: 80+ archivos, 40+ funciones CRUD
+
+---
+
+## 🎯 Próximos Pasos
+
+- [ ] Integración de `/catalogo/*` en App.jsx
+- [ ] Verificación de backend serializers
+- [ ] Testing E2E con backend real
+- [ ] Deployment a staging
+- [ ] Deployment a producción
+
+---
+
+**Última Actualización**: Mayo 2026
+**Versión**: 2.0 (Prize Distribution 1.0 + Catálogo 1.0)
 [ ] Refrescar página (F5)
 ```
 

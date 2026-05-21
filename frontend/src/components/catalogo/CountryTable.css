@@ -1,0 +1,107 @@
+.table-responsive {
+  overflow-x: auto;
+}
+
+.country-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.country-table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.country-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+}
+
+.country-table th:hover {
+  background-color: #e9ecef;
+}
+
+.country-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.country-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.country-table .flag-cell {
+  text-align: center;
+}
+
+.country-table .flag-img {
+  max-width: 50px;
+  max-height: 30px;
+  border-radius: 4px;
+}
+
+.country-table .no-flag {
+  color: #999;
+}
+
+.country-table .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.country-table .btn-edit,
+.country-table .btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.country-table .btn-edit:hover {
+  background-color: #e7f3ff;
+}
+
+.country-table .btn-delete:hover {
+  background-color: #ffe7e7;
+}
+
+.loading,
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .country-table {
+    font-size: 0.9rem;
+  }
+
+  .country-table th,
+  .country-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .country-table .flag-img {
+    max-width: 30px;
+    max-height: 20px;
+  }
+
+  .country-table .actions {
+    flex-direction: column;
+  }
+}

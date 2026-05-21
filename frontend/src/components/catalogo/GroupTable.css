@@ -1,0 +1,88 @@
+.table-responsive {
+  overflow-x: auto;
+}
+
+.group-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.group-table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.group-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+}
+
+.group-table th:hover {
+  background-color: #e9ecef;
+}
+
+.group-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.group-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.group-table .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.group-table .btn-edit,
+.group-table .btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.group-table .btn-edit:hover {
+  background-color: #e7f3ff;
+}
+
+.group-table .btn-delete:hover {
+  background-color: #ffe7e7;
+}
+
+.loading,
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .group-table {
+    font-size: 0.9rem;
+  }
+
+  .group-table th,
+  .group-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .group-table .actions {
+    flex-direction: column;
+  }
+}
