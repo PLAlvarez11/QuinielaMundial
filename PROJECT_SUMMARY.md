@@ -337,13 +337,278 @@ cd backend && python manage.py runserver
 
 ---
 
-## 🎓 Próximas Mejoras
+## 🎓 Próximas Mejoras (Prize Distribution)
 
 1. **Paginación** - Implementar backend + frontend
 2. **Exportar** - CSV, Excel, PDF
 3. **Filtros Avanzados** - Fechas, rangos
 4. **Edición Inline** - Editar en tabla
 5. **Bulk Operations** - Operaciones en lote
+6. **Historial** - Registro de cambios
+7. **Gráficos** - Análisis visual
+8. **Reportes** - Reportes automáticos
+9. **Permisos** - Roles y permisos
+10. **Offline** - Soporte offline
+
+---
+
+# 📦 Módulo Catálogo del Mundial (M5 - NUEVO)
+
+## ✅ Resumen de Implementación
+
+Se ha creado un **CRUD completo y profesional** para la gestión del Catálogo del Mundial, incluyendo sedes, estadios, países, fases del torneo, grupos, asignaciones de países a grupos, y partidos.
+
+### 📊 Entidades Gestionadas (7 Entidades)
+1. **Sedes (Venues)** - Ubicaciones del mundial
+2. **Estadios (Stadiums)** - Estadios con capacidades
+3. **Países (Countries)** - Equipos participantes
+4. **Fases (TournamentStages)** - Etapas del torneo
+5. **Grupos (Groups)** - Grupos de competencia
+6. **Asignaciones Grupo-País (GroupCountries)** - Relaciones M2M
+7. **Partidos (Matches)** - Juegos con resultados
+
+### 🎯 Funcionalidades Principales
+
+- ✅ **CRUD Completo** - Crear, Leer, Actualizar, Eliminar para todas las 7 entidades
+- ✅ **Búsqueda en Tiempo Real** - Filtrado instantáneo en todas las listas
+- ✅ **Ordenamiento** - Columnas ordenables en todas las tablas
+- ✅ **Validaciones** - Validación en cliente y manejo de errores del servidor
+- ✅ **Selects Dinámicos** - Cargan datos de entidades relacionadas automáticamente
+- ✅ **Formularios Inteligentes** - Usado tanto para crear como para editar
+- ✅ **Modales de Confirmación** - Previenen eliminaciones accidentales
+- ✅ **Notificaciones Toast** - Feedback visual para éxito/error
+- ✅ **Sidebar Colapsable** - Menú de navegación completo y funcional
+- ✅ **Diseño Responsivo** - Funciona en mobile, tablet y desktop
+
+### 📁 Archivos Creados (60+ Archivos)
+
+#### Core (2 archivos)
+- `src/api/catalogoApi.js` - 35 funciones CRUD
+- `src/routes/CatalogoRoutes.jsx` - Enrutador del módulo
+
+#### Componentes Reutilizables (14 archivos)
+- Componentes Form + Table para cada entidad (7 × 2 = 14)
+- Todos con estilos CSS modular
+
+#### Páginas CRUD (42 archivos)
+- List + Create + Edit para cada entidad (7 × 3 = 21)
+- Todos con estilos CSS (21 × 2 = 42)
+
+#### Integración (2 archivos)
+- `src/pages/M5WorldCupAdmin/main.jsx` - Actualizado
+- `src/pages/M5WorldCupAdmin/Catalogo.css` - Estilos
+
+#### Documentación (3 archivos)
+- `CATALOGO_QUICK_START.md` - Guía rápida para usuarios
+- `CATALOGO_INTEGRATION.md` - Integración técnica
+- `src/pages/catalogo/README.md` - Referencia técnica
+
+### 🔧 Características Técnicas
+
+#### Validaciones por Entidad
+- **Venues**: nombre, ciudad, país (requeridos)
+- **Stadiums**: nombre, sede, capacidad > 0 (requeridos)
+- **Countries**: nombre, código ≤ 5 caracteres, URL flag (opcional)
+- **TournamentStages**: nombre, orden > 0 (requeridos)
+- **Groups**: nombre, fase (requeridos)
+- **GroupCountries**: grupo, país (requeridos)
+- **Matches**: equipos distintos, stadio, fase, fecha (requeridos), goles ≥ 0
+
+#### API Layer (catalogoApi.js)
+- 35 funciones: 5 métodos CRUD × 7 entidades
+- Axios instance con JWT interceptor automático
+- Manejo de errores centralizado
+- Base URL configurable
+
+#### Componentes Reutilizables
+- Formularios controlados con `useState`
+- `useEffect` para cargar datos dinámicos
+- Componentes sin estado (dumb components)
+- CSS modular por componente
+
+#### Páginas CRUD
+- `useParams` para extraer IDs de URL
+- `useNavigate` para redirecciones
+- Gestión completa del ciclo CRUD
+- Estados: loading, data, errors
+
+#### Sidebar Interactivo
+- Toggle para colapsar/expandir
+- 7 ítems de menú con iconos
+- Navegación funcional
+- Responsive (grid en mobile)
+
+### 📊 Estructura de Datos
+
+Todos los detalles sobre modelos, serializers y respuestas en:
+- `CATALOGO_INTEGRATION.md` - Sección "Estructura de Datos"
+
+### 🚀 Rutas Disponibles
+
+```
+/catalogo/venues              - Listar sedes
+/catalogo/venues/create       - Crear sede
+/catalogo/venues/edit/:id     - Editar sede
+
+/catalogo/stadiums            - Listar estadios
+/catalogo/stadiums/create     - Crear estadio
+/catalogo/stadiums/edit/:id   - Editar estadio
+
+/catalogo/countries           - Listar países
+/catalogo/countries/create    - Crear país
+/catalogo/countries/edit/:id  - Editar país
+
+/catalogo/tournament-stages   - Listar fases
+/catalogo/tournament-stages/create
+/catalogo/tournament-stages/edit/:id
+
+/catalogo/groups              - Listar grupos
+/catalogo/groups/create       - Crear grupo
+/catalogo/groups/edit/:id     - Editar grupo
+
+/catalogo/group-countries     - Listar asignaciones
+/catalogo/group-countries/create
+/catalogo/group-countries/edit/:id
+
+/catalogo/matches             - Listar partidos
+/catalogo/matches/create      - Crear partido
+/catalogo/matches/edit/:id    - Editar partido
+```
+
+### 📚 Documentación Completa
+
+1. **[CATALOGO_QUICK_START.md](./CATALOGO_QUICK_START.md)** - Guía rápida para usuarios
+2. **[CATALOGO_INTEGRATION.md](./CATALOGO_INTEGRATION.md)** - Integración técnica
+3. **[src/pages/catalogo/README.md](./src/pages/catalogo/README.md)** - Referencia técnica completa
+
+### 🧪 Testing Manual
+
+```
+✅ Navegar a /catalogo/venues
+✅ Ver listado vacío o con datos
+✅ Búsqueda funciona
+✅ Ordenamiento funciona
+✅ Click en "Nuevo" → Create página
+✅ Crear registro → Volver a listado
+✅ Click en editar → Edit página
+✅ Editar registro → Volver a listado
+✅ Click en eliminar → Modal de confirmación
+✅ Confirmar eliminación → Listado actualizado
+✅ Selects dinámicos cargan correctamente
+✅ Validaciones funcionan
+✅ Toasts aparecen
+✅ Sidebar colapsable funciona
+✅ Responsive en mobile
+```
+
+### 🔄 Flujo Recomendado de Datos
+
+Para poblar correctamente el mundial:
+```
+1. Crear PAÍSES (base de datos)
+2. Crear SEDES (ubicaciones)
+3. Crear ESTADIOS (asignar a sedes)
+4. Crear FASES (ordenar competencia)
+5. Crear GRUPOS (asignar a fases)
+6. Crear ASIGNACIONES PAÍS-GRUPO (llenar grupos)
+7. Crear PARTIDOS (con todas las relaciones)
+```
+
+### 🎨 Diseño Visual
+
+- **Sidebar**: Gradiente morado → azul (#667eea → #764ba2)
+- **Botones**: Verde (crear), Gris (volver), Rojo (eliminar)
+- **Iconos**: Emojis descriptivos (🏛️, 🏟️, 🌎, 📅, 👥, 🎯, ⚽)
+- **Tablas**: Alternancia de filas, acciones inline
+- **Formularios**: Validación visual, errores rojo
+- **Modales**: Overlay oscuro, opciones confirmar/cancelar
+- **Toasts**: Esquina inferior, auto-cerrable
+
+### 🔐 Seguridad Implementada
+
+- JWT token en localStorage
+- Token enviado automáticamente en headers
+- Validación en cliente + servidor
+- Manejo de errores HTTP (401, 403, 404, 500)
+- Protección XSS (React escapa HTML)
+- CSRF tokens (Django middleware)
+
+### 📈 Optimizaciones
+
+- Búsqueda en cliente (sin round-trips)
+- Ordenamiento en cliente
+- Componentes funcionales (sin clases)
+- `useEffect` con dependencias correctas
+- Async/await en servicios API
+- Try-catch en todos los API calls
+- Carga dinámica de opciones en selects
+
+### 🐛 Troubleshooting
+
+Consultar `CATALOGO_INTEGRATION.md` sección "Solución de Problemas":
+- Error 404 en rutas
+- Datos no cargan
+- Selects vacíos
+- Token no funciona
+- Error CORS
+
+### 🎓 Próximas Mejoras (Catálogo)
+
+1. **Paginación** - Para listas grandes
+2. **Filtros Avanzados** - Por múltiples campos
+3. **Edición Inline** - Editar en tabla directamente
+4. **Bulk Operations** - Operaciones en lote
+5. **Historial** - Auditoría de cambios
+6. **Exportar** - CSV, Excel, PDF
+7. **Gráficos** - Visualización de datos
+8. **Permisos** - Roles y niveles de acceso
+9. **Caché** - Optimización de requests
+10. **Importar** - Carga de datos en lote
+
+---
+
+## 📞 Soporte General
+
+### Documentación por Módulo
+
+#### Prize Distribution (M6)
+- API: `src/api/prizesApi.js`
+- Componentes: `src/components/Prize*.jsx`
+- Páginas: `src/pages/M6PrizeDistribution/`
+- Guides: `GUIDE_PRIZE_DISTRIBUTION.md`, `EXAMPLES_USAGE.md`
+
+#### Catálogo del Mundial (M5)
+- API: `src/api/catalogoApi.js`
+- Componentes: `src/components/catalogo/`
+- Páginas: `src/pages/catalogo/`
+- Guides: `CATALOGO_QUICK_START.md`, `CATALOGO_INTEGRATION.md`
+
+### Para Reportar Problemas
+1. Revisar documentación en archivos README
+2. Verificar ejemplos en archivos de ejemplos
+3. Revisar logs del navegador (F12 → Console)
+4. Revisar logs del servidor Django
+
+---
+
+## 🎯 Estado General del Proyecto
+
+### ✅ Completado
+- [x] CRUD Prize Distribution (M6) - Funcional
+- [x] CRUD Catálogo del Mundial (M5) - Funcional
+- [x] Autenticación (M1) - Integrada
+- [x] Documentación completa para ambos módulos
+
+### ⏳ Pendiente
+- [ ] Integración de rutas en App.jsx
+- [ ] Testing E2E
+- [ ] Deployment a producción
+- [ ] Documentación de APIs
+
+---
+
+**Última actualización**: Mayo 2026
+**Versión**: 2.0 (Prize Distribution 1.0 + Catálogo 1.0)
 6. **Historial** - Registro de cambios
 7. **Gráficos** - Análisis visual
 8. **Reportes** - Reportes automáticos

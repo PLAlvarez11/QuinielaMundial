@@ -1,6 +1,15 @@
-# 🚀 Quick Start - Prize Distribution CRUD
+# 🚀 Quick Start - Módulos CRUD de QuinielaMundial
 
-## ⚡ En 5 Minutos
+## 📦 Módulos Disponibles
+
+Se han implementado 2 módulos CRUD completos:
+
+1. **Prize Distribution (M6)** - Gestión de premios
+2. **Catálogo del Mundial (M5)** - Gestión de datos del mundial
+
+---
+
+## ⚡ Inicio Rápido (Prize Distribution)
 
 ### 1. Instalar Dependencias (ya está hecho)
 ```bash
@@ -22,17 +31,24 @@ npm run dev
 # El frontend estará en http://localhost:5173
 ```
 
-### 4. Acceder
+### 4. Acceder a Prize Distribution
 ```
 Abre http://localhost:5173 en el navegador
 Navega a: /prizes
+```
+
+### 5. Acceder a Catálogo
+```
+Abre http://localhost:5173 en el navegador
+Navega a: /catalogo/venues
+# O a través del menú M5 - Administración del Mundial
 ```
 
 ---
 
 ## ✅ Verificar que Todo Funciona
 
-### ✓ Paso 1: Listar Premios
+### ✓ Paso 1: Listar (Prize Distribution)
 ```
 Deberías ver:
 - Página con tabla (vacía si no hay datos)
@@ -67,6 +83,15 @@ Deberías ver:
 4. Desaparece de la tabla
 ```
 
+### ✓ Paso 5: Catálogo - Crear Datos
+```
+1. Navega a /catalogo/venues
+2. Click en "+ Nuevo Venue"
+3. Completa nombre, ciudad, país
+4. Click en "Guardar"
+5. Aparece en la tabla
+```
+
 ---
 
 ## 🔧 Configuración Mínima
@@ -77,9 +102,10 @@ Deberías ver:
 # settings.py debe tener:
 INSTALLED_APPS = [
     'rest_framework',
-    'corsheaders',  # si está en distinto puerto
+    'corsheaders',
     'prizes',
     'leagues_app',
+    'catalogo',        # ← NUEVO
 ]
 
 # urls.py debe tener:
@@ -87,6 +113,7 @@ urlpatterns = [
     path('api/prizes/', include('prizes.urls')),
     path('api/leagues/', ...),
     path('api/league-members/', ...),
+    path('api/catalogo/', include('catalogo.urls')),  # ← NUEVO
 ]
 ```
 
@@ -97,6 +124,145 @@ urlpatterns = [
 const API_BASE_URL = 'http://localhost:8000/api';
 // ✅ Si backend está en otro puerto, cambiar aquí
 ```
+
+---
+
+## 📚 Documentación Completa
+
+### Prize Distribution (M6)
+- 📖 [GUIDE_PRIZE_DISTRIBUTION.md](./GUIDE_PRIZE_DISTRIBUTION.md) - Guía completa
+- 📋 [EXAMPLES_USAGE.md](./EXAMPLES_USAGE.md) - 10 ejemplos prácticos
+- 🔧 [backend/prizes/INTEGRATION_GUIDE.md](./backend/prizes/INTEGRATION_GUIDE.md) - Integración Django
+
+### Catálogo del Mundial (M5)
+- 📖 [CATALOGO_QUICK_START.md](./CATALOGO_QUICK_START.md) - Guía rápida para usuarios
+- 🔧 [CATALOGO_INTEGRATION.md](./CATALOGO_INTEGRATION.md) - Integración técnica
+- 📋 [CATALOGO_CHECKLIST.md](./CATALOGO_CHECKLIST.md) - Checklist de verificación
+- 📚 [src/pages/catalogo/README.md](./src/pages/catalogo/README.md) - Referencia técnica
+
+---
+
+## 🎯 Rutas Principales
+
+### Prize Distribution
+```
+/prizes              - Listar premios
+/prizes/create       - Crear premio
+/prizes/edit/:id     - Editar premio
+```
+
+### Catálogo
+```
+/catalogo/venues                    - Listar sedes
+/catalogo/stadiums                  - Listar estadios
+/catalogo/countries                 - Listar países
+/catalogo/tournament-stages         - Listar fases
+/catalogo/groups                    - Listar grupos
+/catalogo/group-countries           - Listar asignaciones
+/catalogo/matches                   - Listar partidos
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Error: "Network Error" o "Cannot fetch"
+```bash
+# 1. Verificar que backend está corriendo
+cd backend && python manage.py runserver
+
+# 2. Verificar que frontend está corriendo
+cd frontend && npm run dev
+
+# 3. Verificar puertos:
+# Backend: http://localhost:8000
+# Frontend: http://localhost:5173
+```
+
+### Error: "Unauthorized" o "401"
+```
+1. Asegúrate de tener token válido
+2. Inicia sesión primero en M1 (Auth)
+3. Verifica que el token está en localStorage
+```
+
+### Tablas vacías
+```
+1. ¿Creaste registros? Click en "+ Nuevo [Entidad]"
+2. ¿Backend está respondiendo? Abre F12 → Network
+3. ¿Datos existen en BD? Verifica backend
+```
+
+### Selects dinámicos vacíos
+```
+Para Catálogo:
+1. Crear Países primero
+2. Luego Sedes
+3. Luego Estadios (necesita Sedes)
+4. Luego Fases
+5. Luego Grupos (necesita Fases)
+```
+
+---
+
+## 🚀 Próximos Pasos
+
+1. **Completa los datos del Catálogo** (CATALOGO_QUICK_START.md)
+2. **Configura premios** (GUIDE_PRIZE_DISTRIBUTION.md)
+3. **Integra en App.jsx** (si aún no está)
+4. **Prueba en diferentes navegadores**
+5. **Verifica responsive en mobile**
+
+---
+
+## 📱 Testing
+
+### Desktop
+```
+✅ Abre http://localhost:5173/catalogo/venues
+✅ Prueba búsqueda, ordenamiento
+✅ Crea, edita, elimina registros
+```
+
+### Mobile (F12 en Chrome)
+```
+✅ Abre DevTools (F12)
+✅ Click en Toggle Device Toolbar (Ctrl+Shift+M)
+✅ Selecciona dispositivo mobile
+✅ Verifica que todo funciona
+```
+
+---
+
+## 💡 Tips
+
+1. **Estructura de datos**: Lee CATALOGO_QUICK_START.md para saber en qué orden crear datos
+2. **Validaciones**: Revisa mensajes de error para saber qué falta
+3. **Búsqueda**: Funciona en tiempo real mientras escribes
+4. **Ordenamiento**: Haz click en headers de tabla para ordenar
+5. **Sidebar**: En mobile, el menú se convierte en grid
+
+---
+
+## 📞 Soporte
+
+### Documentos Rápidos
+- Usuarios: CATALOGO_QUICK_START.md
+- Desarrolladores: CATALOGO_INTEGRATION.md
+- Técnico: src/pages/catalogo/README.md
+
+### Logs del Navegador
+```
+Abre F12 → Console
+Busca errores rojos
+Verifica Network tab para requests fallidas
+```
+
+---
+
+**Versión**: 2.0 (Prize Distribution + Catálogo)
+**Última Actualización**: Mayo 2026
+
 
 ---
 
