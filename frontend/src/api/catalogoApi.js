@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/api/catalogo';
+const API_BASE_URL = `${import.meta.env.VITE_API_URL}api/catalogo`;
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
@@ -11,7 +11,7 @@ const axiosInstance = axios.create({
 
 // Agregar token de autenticación si existe
 axiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem('access_token');
+  const token = localStorage.getItem('authToken');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }

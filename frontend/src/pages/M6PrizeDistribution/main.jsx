@@ -12,8 +12,8 @@ export default function M6PrizeDistributionMain() {
   return (
     <Routes>
       <Route path="/" element={<PrizeList />} />
-      <Route path="/create" element={<PrizeCreate />} />
-      <Route path="/edit/:id" element={<PrizeEdit />} />
+      <Route path="create" element={<PrizeCreate />} />
+      <Route path="edit/:id" element={<PrizeEdit />} />
     </Routes>
   );
 }

@@ -69,7 +69,7 @@ const PrizeList = () => {
 
   // Manejar edición
   const handleEdit = (prizeId) => {
-    navigate(`/prizes/edit/${prizeId}`);
+    navigate(`edit/${prizeId}`);
   };
 
   // Manejar eliminación
@@ -117,7 +117,7 @@ const PrizeList = () => {
         </div>
         <button
           className="btn btn-primary btn-new"
-          onClick={() => navigate('/prizes/create')}
+          onClick={() => navigate('create')}
         >
           <FiPlus size={18} />
           Nuevo Premio

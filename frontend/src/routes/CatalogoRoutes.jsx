@@ -39,42 +39,42 @@ export default function CatalogoRoutes() {
   return (
     <Routes>
       {/* Redirect to venues by default */}
-      <Route path="/" element={<Navigate to="/catalogo/venues" replace />} />
+      <Route path="/" element={<Navigate to="venues" replace />} />
 
       {/* Venues Routes */}
-      <Route path="/venues" element={<VenueList />} />
-      <Route path="/venues/create" element={<VenueCreate />} />
-      <Route path="/venues/edit/:id" element={<VenueEdit />} />
+      <Route path="venues" element={<VenueList />} />
+      <Route path="venues/create" element={<VenueCreate />} />
+      <Route path="venues/edit/:id" element={<VenueEdit />} />
 
       {/* Stadiums Routes */}
-      <Route path="/stadiums" element={<StadiumList />} />
-      <Route path="/stadiums/create" element={<StadiumCreate />} />
-      <Route path="/stadiums/edit/:id" element={<StadiumEdit />} />
+      <Route path="stadiums" element={<StadiumList />} />
+      <Route path="stadiums/create" element={<StadiumCreate />} />
+      <Route path="stadiums/edit/:id" element={<StadiumEdit />} />
 
       {/* Countries Routes */}
-      <Route path="/countries" element={<CountryList />} />
-      <Route path="/countries/create" element={<CountryCreate />} />
-      <Route path="/countries/edit/:id" element={<CountryEdit />} />
+      <Route path="countries" element={<CountryList />} />
+      <Route path="countries/create" element={<CountryCreate />} />
+      <Route path="countries/edit/:id" element={<CountryEdit />} />
 
       {/* Tournament Stages Routes */}
-      <Route path="/tournament-stages" element={<TournamentStageList />} />
-      <Route path="/tournament-stages/create" element={<TournamentStageCreate />} />
-      <Route path="/tournament-stages/edit/:id" element={<TournamentStageEdit />} />
+      <Route path="tournament-stages" element={<TournamentStageList />} />
+      <Route path="tournament-stages/create" element={<TournamentStageCreate />} />
+      <Route path="tournament-stages/edit/:id" element={<TournamentStageEdit />} />
 
       {/* Groups Routes */}
-      <Route path="/groups" element={<GroupList />} />
-      <Route path="/groups/create" element={<GroupCreate />} />
-      <Route path="/groups/edit/:id" element={<GroupEdit />} />
+      <Route path="groups" element={<GroupList />} />
+      <Route path="groups/create" element={<GroupCreate />} />
+      <Route path="groups/edit/:id" element={<GroupEdit />} />
 
       {/* Group Countries Routes */}
-      <Route path="/group-countries" element={<GroupCountryList />} />
-      <Route path="/group-countries/create" element={<GroupCountryCreate />} />
-      <Route path="/group-countries/edit/:id" element={<GroupCountryEdit />} />
+      <Route path="group-countries" element={<GroupCountryList />} />
+      <Route path="group-countries/create" element={<GroupCountryCreate />} />
+      <Route path="group-countries/edit/:id" element={<GroupCountryEdit />} />
 
       {/* Matches Routes */}
-      <Route path="/matches" element={<MatchList />} />
-      <Route path="/matches/create" element={<MatchCreate />} />
-      <Route path="/matches/edit/:id" element={<MatchEdit />} />
+      <Route path="matches" element={<MatchList />} />
+      <Route path="matches/create" element={<MatchCreate />} />
+      <Route path="matches/edit/:id" element={<MatchEdit />} />
     </Routes>
   );
 }

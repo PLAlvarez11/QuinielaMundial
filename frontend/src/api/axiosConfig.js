@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// URL base del backend
-const API_BASE_URL = 'http://localhost:8000/api';
+// URL base del backend desde variable de entorno
+const API_BASE_URL = `${import.meta.env.VITE_API_URL}api`;
 
 // Crear instancia de axios configurada
 const axiosInstance = axios.create({
@@ -15,7 +15,7 @@ const axiosInstance = axios.create({
 // Interceptor para agregar token de autenticación si existe
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('authToken');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

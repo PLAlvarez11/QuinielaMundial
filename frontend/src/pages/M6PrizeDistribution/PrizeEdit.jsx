@@ -31,7 +31,7 @@ const PrizeEdit = () => {
         console.error('Error loading prize:', error);
         showError('Error al cargar el premio');
         setTimeout(() => {
-          navigate('/prizes');
+          navigate('.');
         }, 2000);
       } finally {
         setLoading(false);
@@ -47,7 +47,7 @@ const PrizeEdit = () => {
       await updatePrize(id, formData);
       showSuccess('Premio actualizado exitosamente');
       setTimeout(() => {
-        navigate('/prizes');
+        navigate('.');
       }, 1500);
     } catch (error) {
       console.error('Error updating prize:', error);
@@ -79,7 +79,7 @@ const PrizeEdit = () => {
       <div className="form-header">
         <button
           className="btn-back"
-          onClick={() => navigate('/prizes')}
+          onClick={() => navigate('.')}
           title="Volver"
         >
           <FiArrowLeft size={20} />

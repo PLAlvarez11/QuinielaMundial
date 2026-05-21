@@ -297,7 +297,7 @@ npm run dev
 ### 3. Verificar Token
 El frontend espera un JWT token en localStorage:
 ```javascript
-localStorage.getItem('access_token')
+localStorage.getItem('authToken')
 ```
 
 Si no hay token, primero inicia sesión en M1AuthUsers.

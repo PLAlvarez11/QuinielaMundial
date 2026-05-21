@@ -40,7 +40,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="navbar-item">
-            <Link to="/m6-prize" className="navbar-link">
+            <Link to="/prizes" className="navbar-link">
               M6 - Premios
             </Link>
           </li>

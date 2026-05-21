@@ -1,22 +1,24 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CatalogoRoutes from '../../routes/CatalogoRoutes';
 import './Catalogo.css';
 
 export default function M5WorldCupAdminMain() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const navigate = useNavigate();
 
   const menuItems = [
-    { label: 'Sedes', path: '/catalogo/venues', icon: '🏛️' },
-    { label: 'Estadios', path: '/catalogo/stadiums', icon: '🏟️' },
-    { label: 'Países', path: '/catalogo/countries', icon: '🌎' },
-    { label: 'Fases', path: '/catalogo/tournament-stages', icon: '📅' },
-    { label: 'Grupos', path: '/catalogo/groups', icon: '👥' },
-    { label: 'Países por Grupo', path: '/catalogo/group-countries', icon: '🎯' },
-    { label: 'Partidos', path: '/catalogo/matches', icon: '⚽' },
+    { label: 'Sedes', path: 'venues', icon: '🏛️' },
+    { label: 'Estadios', path: 'stadiums', icon: '🏟️' },
+    { label: 'Países', path: 'countries', icon: '🌎' },
+    { label: 'Fases', path: 'tournament-stages', icon: '📅' },
+    { label: 'Grupos', path: 'groups', icon: '👥' },
+    { label: 'Países por Grupo', path: 'group-countries', icon: '🎯' },
+    { label: 'Partidos', path: 'matches', icon: '⚽' },
   ];
 
   const handleMenuItemClick = (path) => {
-    window.location.hash = `#${path}`;
+    navigate(path);
   };
 
   return (
@@ -33,15 +35,15 @@ export default function M5WorldCupAdminMain() {
         </div>
         <nav className="sidebar-menu">
           {menuItems.map((item) => (
-            <a
+            <button
               key={item.path}
-              href={`#${item.path}`}
+              onClick={() => handleMenuItemClick(item.path)}
               className="menu-item"
               title={item.label}
             >
               <span className="menu-icon">{item.icon}</span>
               {sidebarOpen && <span className="menu-label">{item.label}</span>}
-            </a>
+            </button>
           ))}
         </nav>
       </div>

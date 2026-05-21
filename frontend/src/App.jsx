@@ -38,7 +38,8 @@ export default function App() {
           <Route path="/m2-league" element={<M2LeagueManagement />} />
           <Route path="/m3-prediction" element={<M3PredictionEngine />} />
           <Route path="/m4-scoreboard" element={<M4Scoreboard />} />
-          <Route path="/m5-worldcup" element={<M5WorldCupAdmin />} />
+          <Route path="/m5-worldcup/*" element={<M5WorldCupAdmin />} />
+          <Route path="/catalogo/*" element={<M5WorldCupAdmin />} />
           <Route path="/prizes/*" element={<M6PrizeDistribution />} />
           <Route path="/m7-admin" element={<M7AdminPanel />} />
           <Route path="*" element={<NotFound />} />

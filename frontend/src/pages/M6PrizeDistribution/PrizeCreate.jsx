@@ -21,7 +21,7 @@ const PrizeCreate = () => {
       await createPrize(formData);
       showSuccess('Premio creado exitosamente');
       setTimeout(() => {
-        navigate('/prizes');
+        navigate('.');
       }, 1500);
     } catch (error) {
       console.error('Error creating prize:', error);
@@ -41,7 +41,7 @@ const PrizeCreate = () => {
       <div className="form-header">
         <button
           className="btn-back"
-          onClick={() => navigate('/prizes')}
+          onClick={() => navigate('.')}
           title="Volver"
         >
           <FiArrowLeft size={20} />
