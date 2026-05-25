@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getLeagueDetail } from '../../api/leaguesApi';
+import { getLeagueDetail, leaveLeague } from '../../api/leaguesApi';
+import ConfirmModal from '../../components/ConfirmModal';
 import LeagueMembersManager from './LeagueMembersManager';
 import InvitationManager from './InvitationManager';
 import Loader from '../../components/Loader';
@@ -12,9 +13,15 @@ export default function LeagueDetails() {
   const [league, setLeague] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
+  const [showLeaveConfirm, setShowLeaveConfirm] = useState(false);
+  const [isLeavingLeague, setIsLeavingLeague] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
+    const user = localStorage.getItem('userId');
+    setCurrentUser(user);
     fetchLeague();
   }, [id]);
 
@@ -31,8 +38,33 @@ export default function LeagueDetails() {
     }
   };
 
+  const isOwner = currentUser && league && league.owner?.id == currentUser;
+  const isMember = currentUser && league && league.members?.some(m => m.user?.id == currentUser || m.user == currentUser);
+
+  const handleLeaveLeague = async () => {
+    try {
+      setIsLeavingLeague(true);
+      setError(null);
+      await leaveLeague(league.id);
+      setSuccess('Has abandonado la liga exitosamente');
+      setTimeout(() => {
+        navigate('/m2-league/list');
+      }, 1500);
+    } catch (err) {
+      setError(
+        err.response?.data?.error ||
+        err.response?.data?.message ||
+        'Error al abandonar la liga: ' + err.message
+      );
+      console.error(err);
+    } finally {
+      setIsLeavingLeague(false);
+      setShowLeaveConfirm(false);
+    }
+  };
+
   if (loading) return <Loader />;
-  if (error) return <div className="alert alert-error">{error}</div>;
+  if (error && !league) return <div className="alert alert-error">{error}</div>;
   if (!league) return <div className="alert alert-error">Liga no encontrada</div>;
 
   return (
@@ -42,10 +74,26 @@ export default function LeagueDetails() {
           ← Volver
         </button>
         <h2>{league.name}</h2>
-        <button className="btn btn-primary btn-sm" onClick={() => navigate(`/m2-league/${id}/edit`)}>
-          ✎ Editar
-        </button>
+        <div className="header-actions">
+          {isOwner && (
+            <button className="btn btn-primary btn-sm" onClick={() => navigate(`/m2-league/${id}/edit`)}>
+              ✎ Editar
+            </button>
+          )}
+          {!isOwner && isMember && (
+            <button
+              className="btn btn-danger btn-sm"
+              onClick={() => setShowLeaveConfirm(true)}
+              disabled={isLeavingLeague}
+            >
+              {isLeavingLeague ? 'Abandonando...' : '✕ Abandonar Liga'}
+            </button>
+          )}
+        </div>
       </div>
+
+      {error && <div className="alert alert-error">{error}</div>}
+      {success && <div className="alert alert-success">{success}</div>}
 
       <div className="league-overview-card">
         <div className="overview-section">
@@ -192,6 +240,17 @@ export default function LeagueDetails() {
           )}
         </div>
       </div>
+
+      {showLeaveConfirm && (
+        <ConfirmModal
+          title="Abandonar Liga"
+          message={`¿Estás seguro de que deseas abandonar "${league.name}"? No podrás revertir esta acción.`}
+          onConfirm={handleLeaveLeague}
+          onCancel={() => setShowLeaveConfirm(false)}
+          confirmText="Abandonar"
+          isDangerous={true}
+        />
+      )}
     </div>
   );
 }

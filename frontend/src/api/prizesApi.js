@@ -1,6 +1,6 @@
 import axiosInstance from './axiosConfig';
 
-const API_ENDPOINT = '/prizes/prize-distributions';
+const API_ENDPOINT = '/prizes/prize-distributions/';
 
 /**
  * Obtener lista de premios con filtros opcionales
@@ -21,7 +21,7 @@ export const getPrizes = async (filters = {}) => {
  */
 export const getPrizeById = async (id) => {
   try {
-    const response = await axiosInstance.get(`${API_ENDPOINT}/${id}/`);
+    const response = await axiosInstance.get(`${API_ENDPOINT}${id}/`);
     return response.data;
   } catch (error) {
     throw error.response?.data || error.message;
@@ -45,7 +45,7 @@ export const createPrize = async (prizeData) => {
  */
 export const updatePrize = async (id, prizeData) => {
   try {
-    const response = await axiosInstance.put(`${API_ENDPOINT}/${id}/`, prizeData);
+    const response = await axiosInstance.put(`${API_ENDPOINT}${id}/`, prizeData);
     return response.data;
   } catch (error) {
     throw error.response?.data || error.message;
@@ -57,7 +57,7 @@ export const updatePrize = async (id, prizeData) => {
  */
 export const deletePrize = async (id) => {
   try {
-    await axiosInstance.delete(`${API_ENDPOINT}/${id}/`);
+    await axiosInstance.delete(`${API_ENDPOINT}${id}/`);
     return true;
   } catch (error) {
     throw error.response?.data || error.message;

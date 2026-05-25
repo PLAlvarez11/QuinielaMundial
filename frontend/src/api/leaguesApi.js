@@ -189,9 +189,12 @@ export const sendInvitation = async (invitationData) => {
 /**
  * INVITATIONS - Aceptar invitación
  */
-export const acceptInvitation = async (token) => {
+export const acceptInvitation = async (token, teamName = null) => {
   try {
-    const response = await axiosInstance.post(`/leagues/invitations/${token}/accept/`);
+    const payload = { token };
+    if (teamName) payload.team_name = teamName;
+    
+    const response = await axiosInstance.post('/leagues/invitations/accept_invitation/', payload);
     return response.data;
   } catch (error) {
     console.error('Error accepting invitation:', error);
@@ -204,7 +207,7 @@ export const acceptInvitation = async (token) => {
  */
 export const rejectInvitation = async (token) => {
   try {
-    const response = await axiosInstance.post(`/leagues/invitations/${token}/reject/`);
+    const response = await axiosInstance.post('/leagues/invitations/reject_invitation/', { token });
     return response.data;
   } catch (error) {
     console.error('Error rejecting invitation:', error);
@@ -213,7 +216,7 @@ export const rejectInvitation = async (token) => {
 };
 
 /**
- * INVITATIONS - Cancelar invitación
+ * INVITATIONS - Cancelar invitación (por el que la envió)
  */
 export const cancelInvitation = async (invitationId) => {
   try {
@@ -221,6 +224,19 @@ export const cancelInvitation = async (invitationId) => {
     return { success: true };
   } catch (error) {
     console.error(`Error canceling invitation ${invitationId}:`, error);
+    throw error;
+  }
+};
+
+/**
+ * LEAGUES - Abandonar una liga
+ */
+export const leaveLeague = async (leagueId) => {
+  try {
+    const response = await axiosInstance.post(`/leagues/leagues/${leagueId}/leave_league/`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error leaving league ${leagueId}:`, error);
     throw error;
   }
 };

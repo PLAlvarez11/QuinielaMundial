@@ -6,15 +6,19 @@
   overflow: hidden;
 }
 
+
+
 .table {
   width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-family: 'Inter', sans-serif;
+  background-color: #111827 !important;
+  --bs-table-bg: transparent !important;
 }
 
 .table thead {
-  background-color: #1F2937;
+  background-color: #1F2937 !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 

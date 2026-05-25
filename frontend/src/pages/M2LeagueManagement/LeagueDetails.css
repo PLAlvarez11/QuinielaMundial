@@ -13,6 +13,12 @@
   gap: 16px;
 }
 
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
 .btn-back {
   background: none;
   border: none;
@@ -278,6 +284,21 @@
 .btn-primary:hover {
   background-color: #1D4ED8;
   box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #F9FAFB;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: #c82333;
+  box-shadow: 0 10px 15px -3px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .btn-sm {
