@@ -1,0 +1,915 @@
+[
+    {
+        "model": "catalogo.tournamentstage",
+        "pk": 1,
+        "fields": {
+            "name": "Fase de Grupos",
+            "order": 1,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.tournamentstage",
+        "pk": 2,
+        "fields": {
+            "name": "Dieciseisavos de Final",
+            "order": 2,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.tournamentstage",
+        "pk": 3,
+        "fields": {
+            "name": "Octavos de Final",
+            "order": 3,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.tournamentstage",
+        "pk": 4,
+        "fields": {
+            "name": "Cuartos de Final",
+            "order": 4,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.tournamentstage",
+        "pk": 5,
+        "fields": {
+            "name": "Semifinales",
+            "order": 5,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.tournamentstage",
+        "pk": 6,
+        "fields": {
+            "name": "Partido por el Tercer Lugar",
+            "order": 6,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.tournamentstage",
+        "pk": 7,
+        "fields": {
+            "name": "Final",
+            "order": 7,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 1,
+        "fields": {
+            "name": "Estados Unidos",
+            "code": "USA",
+            "flag_url": "https://flagcdn.com/us.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 2,
+        "fields": {
+            "name": "México",
+            "code": "MEX",
+            "flag_url": "https://flagcdn.com/mx.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 3,
+        "fields": {
+            "name": "Canadá",
+            "code": "CAN",
+            "flag_url": "https://flagcdn.com/ca.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 1,
+        "fields": {
+            "name": "Ciudad de México",
+            "city": "Ciudad de México",
+            "country": "México",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 2,
+        "fields": {
+            "name": "Guadalajara",
+            "city": "Guadalajara",
+            "country": "México",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 3,
+        "fields": {
+            "name": "Monterrey",
+            "city": "Monterrey",
+            "country": "México",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 4,
+        "fields": {
+            "name": "Argentina",
+            "code": "ARG",
+            "flag_url": "https://flagcdn.com/ar.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 5,
+        "fields": {
+            "name": "Brasil",
+            "code": "BRA",
+            "flag_url": "https://flagcdn.com/br.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 6,
+        "fields": {
+            "name": "Alemania",
+            "code": "GER",
+            "flag_url": "https://flagcdn.com/de.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 7,
+        "fields": {
+            "name": "España",
+            "code": "ESP",
+            "flag_url": "https://flagcdn.com/es.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 8,
+        "fields": {
+            "name": "Francia",
+            "code": "FRA",
+            "flag_url": "https://flagcdn.com/fr.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 9,
+        "fields": {
+            "name": "Italia",
+            "code": "ITA",
+            "flag_url": "https://flagcdn.com/it.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 10,
+        "fields": {
+            "name": "Inglaterra",
+            "code": "ENG",
+            "flag_url": "https://flagcdn.com/gb-eng.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 11,
+        "fields": {
+            "name": "Portugal",
+            "code": "POR",
+            "flag_url": "https://flagcdn.com/pt.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 12,
+        "fields": {
+            "name": "Países Bajos",
+            "code": "NED",
+            "flag_url": "https://flagcdn.com/nl.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 13,
+        "fields": {
+            "name": "Bélgica",
+            "code": "BEL",
+            "flag_url": "https://flagcdn.com/be.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 14,
+        "fields": {
+            "name": "Croacia",
+            "code": "CRO",
+            "flag_url": "https://flagcdn.com/hr.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 15,
+        "fields": {
+            "name": "Uruguay",
+            "code": "URU",
+            "flag_url": "https://flagcdn.com/uy.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 16,
+        "fields": {
+            "name": "Colombia",
+            "code": "COL",
+            "flag_url": "https://flagcdn.com/co.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 17,
+        "fields": {
+            "name": "Chile",
+            "code": "CHI",
+            "flag_url": "https://flagcdn.com/cl.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 18,
+        "fields": {
+            "name": "Japón",
+            "code": "JPN",
+            "flag_url": "https://flagcdn.com/jp.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 19,
+        "fields": {
+            "name": "Corea del Sur",
+            "code": "KOR",
+            "flag_url": "https://flagcdn.com/kr.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 20,
+        "fields": {
+            "name": "Marruecos",
+            "code": "MAR",
+            "flag_url": "https://flagcdn.com/ma.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 21,
+        "fields": {
+            "name": "Senegal",
+            "code": "SEN",
+            "flag_url": "https://flagcdn.com/sn.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 22,
+        "fields": {
+            "name": "Nigeria",
+            "code": "NGA",
+            "flag_url": "https://flagcdn.com/ng.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 23,
+        "fields": {
+            "name": "Egipto",
+            "code": "EGY",
+            "flag_url": "https://flagcdn.com/eg.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 24,
+        "fields": {
+            "name": "Australia",
+            "code": "AUS",
+            "flag_url": "https://flagcdn.com/au.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 25,
+        "fields": {
+            "name": "Arabia Saudita",
+            "code": "KSA",
+            "flag_url": "https://flagcdn.com/sa.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 26,
+        "fields": {
+            "name": "Irán",
+            "code": "IRN",
+            "flag_url": "https://flagcdn.com/ir.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 27,
+        "fields": {
+            "name": "Costa Rica",
+            "code": "CRC",
+            "flag_url": "https://flagcdn.com/cr.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 28,
+        "fields": {
+            "name": "Panamá",
+            "code": "PAN",
+            "flag_url": "https://flagcdn.com/pa.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 29,
+        "fields": {
+            "name": "Ecuador",
+            "code": "ECU",
+            "flag_url": "https://flagcdn.com/ec.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.country",
+        "pk": 30,
+        "fields": {
+            "name": "Perú",
+            "code": "PER",
+            "flag_url": "https://flagcdn.com/pe.svg",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 4,
+        "fields": {
+            "name": "Toronto",
+            "city": "Toronto",
+            "country": "Canadá",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 5,
+        "fields": {
+            "name": "Vancouver",
+            "city": "Vancouver",
+            "country": "Canadá",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 6,
+        "fields": {
+            "name": "Atlanta",
+            "city": "Atlanta",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 7,
+        "fields": {
+            "name": "Boston",
+            "city": "Boston",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 8,
+        "fields": {
+            "name": "Dallas",
+            "city": "Dallas",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 9,
+        "fields": {
+            "name": "Houston",
+            "city": "Houston",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 10,
+        "fields": {
+            "name": "Kansas City",
+            "city": "Kansas City",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 11,
+        "fields": {
+            "name": "Los Ángeles",
+            "city": "Los Ángeles",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 12,
+        "fields": {
+            "name": "Miami",
+            "city": "Miami",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 13,
+        "fields": {
+            "name": "Nueva York / Nueva Jersey",
+            "city": "Nueva York",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 14,
+        "fields": {
+            "name": "Filadelfia",
+            "city": "Filadelfia",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 15,
+        "fields": {
+            "name": "San Francisco Bay Area",
+            "city": "San Francisco",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.venue",
+        "pk": 16,
+        "fields": {
+            "name": "Seattle",
+            "city": "Seattle",
+            "country": "Estados Unidos",
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 1,
+        "fields": {
+            "name": "Estadio Azteca",
+            "venue": 1,
+            "capacity": 87523,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 2,
+        "fields": {
+            "name": "Estadio Akron",
+            "venue": 2,
+            "capacity": 48071,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 3,
+        "fields": {
+            "name": "Estadio BBVA",
+            "venue": 3,
+            "capacity": 53460,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 4,
+        "fields": {
+            "name": "BMO Field",
+            "venue": 4,
+            "capacity": 45500,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 5,
+        "fields": {
+            "name": "BC Place",
+            "venue": 5,
+            "capacity": 54500,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 6,
+        "fields": {
+            "name": "Mercedes-Benz Stadium",
+            "venue": 6,
+            "capacity": 75000,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 7,
+        "fields": {
+            "name": "Gillette Stadium",
+            "venue": 7,
+            "capacity": 70000,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 8,
+        "fields": {
+            "name": "AT&T Stadium",
+            "venue": 8,
+            "capacity": 92967,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 9,
+        "fields": {
+            "name": "NRG Stadium",
+            "venue": 9,
+            "capacity": 72220,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 10,
+        "fields": {
+            "name": "Arrowhead Stadium",
+            "venue": 10,
+            "capacity": 76416,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 11,
+        "fields": {
+            "name": "SoFi Stadium",
+            "venue": 11,
+            "capacity": 70000,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 12,
+        "fields": {
+            "name": "Hard Rock Stadium",
+            "venue": 12,
+            "capacity": 65326,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 13,
+        "fields": {
+            "name": "MetLife Stadium",
+            "venue": 13,
+            "capacity": 82500,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 14,
+        "fields": {
+            "name": "Lincoln Financial Field",
+            "venue": 14,
+            "capacity": 69596,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 15,
+        "fields": {
+            "name": "Levi's Stadium",
+            "venue": 15,
+            "capacity": 68500,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalogo.stadium",
+        "pk": 16,
+        "fields": {
+            "name": "Lumen Field",
+            "venue": 16,
+            "capacity": 69000,
+            "created_at": "2026-01-01T00:00:00Z"
+        }
+    },
+      {
+    "model": "catalogo.group",
+    "pk": 1,
+    "fields": {
+      "name": "A",
+      "stage": 1,
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 2,
+    "fields": {
+      "name": "B",
+      "stage": 1,
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 3,
+    "fields": {
+      "name": "C",
+      "stage": 1,
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 1,
+    "fields": {
+      "group": 1,
+      "country": 1
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 2,
+    "fields": {
+      "group": 1,
+      "country": 18
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 3,
+    "fields": {
+      "group": 1,
+      "country": 22
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 4,
+    "fields": {
+      "group": 1,
+      "country": 30
+    }
+  },
+
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 5,
+    "fields": {
+      "group": 2,
+      "country": 4
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 6,
+    "fields": {
+      "group": 2,
+      "country": 3
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 7,
+    "fields": {
+      "group": 2,
+      "country": 20
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 8,
+    "fields": {
+      "group": 2,
+      "country": 19
+    }
+  },
+
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 9,
+    "fields": {
+      "group": 3,
+      "country": 5
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 10,
+    "fields": {
+      "group": 3,
+      "country": 7
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 11,
+    "fields": {
+      "group": 3,
+      "country": 24
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 12,
+    "fields": {
+      "group": 3,
+      "country": 21
+    }
+  },
+
+  {
+    "model": "catalogo.match",
+    "pk": 1,
+    "fields": {
+      "home_team": 1,
+      "away_team": 18,
+      "stadium": 13,
+      "stage": 1,
+      "group": 1,
+      "match_date": "2026-06-11T18:00:00Z",
+      "home_score": null,
+      "away_score": null,
+      "status": "scheduled",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.match",
+    "pk": 2,
+    "fields": {
+      "home_team": 22,
+      "away_team": 30,
+      "stadium": 12,
+      "stage": 1,
+      "group": 1,
+      "match_date": "2026-06-12T21:00:00Z",
+      "home_score": null,
+      "away_score": null,
+      "status": "scheduled",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.match",
+    "pk": 3,
+    "fields": {
+      "home_team": 4,
+      "away_team": 3,
+      "stadium": 1,
+      "stage": 1,
+      "group": 2,
+      "match_date": "2026-06-13T19:00:00Z",
+      "home_score": null,
+      "away_score": null,
+      "status": "scheduled",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.match",
+    "pk": 4,
+    "fields": {
+      "home_team": 20,
+      "away_team": 19,
+      "stadium": 5,
+      "stage": 1,
+      "group": 2,
+      "match_date": "2026-06-13T23:00:00Z",
+      "home_score": null,
+      "away_score": null,
+      "status": "scheduled",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.match",
+    "pk": 5,
+    "fields": {
+      "home_team": 5,
+      "away_team": 7,
+      "stadium": 8,
+      "stage": 1,
+      "group": 3,
+      "match_date": "2026-06-14T18:00:00Z",
+      "home_score": null,
+      "away_score": null,
+      "status": "scheduled",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.match",
+    "pk": 6,
+    "fields": {
+      "home_team": 24,
+      "away_team": 21,
+      "stadium": 16,
+      "stage": 1,
+      "group": 3,
+      "match_date": "2026-06-14T22:00:00Z",
+      "home_score": null,
+      "away_score": null,
+      "status": "scheduled",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  }
+
+]
