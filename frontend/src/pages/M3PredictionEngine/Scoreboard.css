@@ -22,7 +22,7 @@
   gap: 8px;
   font-size: 18px;
   font-weight: 700;
-  color: #1e293b;
+  color: #F9FAFB;
   margin: 0;
 }
 
@@ -32,18 +32,19 @@
   gap: 5px;
   font-size: 12px;
   font-weight: 600;
-  color: #3b82f6;
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
+  color: #60A5FA;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
   border-radius: 6px;
   padding: 6px 12px;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background 0.2s, border-color 0.2s;
   min-height: 36px;
 }
 
 .btn-refresh:hover {
-  background: #dbeafe;
+  background: rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.3);
 }
 
 /* ── Podium cards ───────────────────────────────────────────────────────────── */
@@ -59,14 +60,28 @@
   align-items: center;
   gap: 4px;
   padding: 14px 10px;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
+  background: #111827;
+  transition: all 0.2s ease;
 }
 
-.podium-card--1 { background: linear-gradient(135deg, #fffbeb, #fef3c7); border-color: #fde68a; }
-.podium-card--2 { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-color: #e2e8f0; }
-.podium-card--3 { background: linear-gradient(135deg, #fff7ed, #fed7aa); border-color: #fdba74; opacity: 0.9; }
+.podium-card--1 { 
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.podium-card--2 { 
+  background: linear-gradient(135deg, rgba(107, 114, 128, 0.08), rgba(107, 114, 128, 0.04));
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.podium-card--3 { 
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.04));
+  border-color: rgba(239, 68, 68, 0.15);
+  opacity: 0.9;
+}
 
 .podium-medal {
   font-size: 24px;
@@ -76,7 +91,7 @@
 .podium-name {
   font-size: 12px;
   font-weight: 700;
-  color: #374151;
+  color: #F9FAFB;
   word-break: break-word;
   max-width: 100%;
 }
@@ -84,20 +99,21 @@
 .podium-pts {
   font-size: 18px;
   font-weight: 900;
-  color: #111827;
+  color: #F9FAFB;
 }
 
 .podium-pts small {
   font-size: 11px;
   font-weight: 600;
-  color: #6b7280;
+  color: #9CA3AF;
 }
 
 /* ── Table ──────────────────────────────────────────────────────────────────── */
 .scoreboard__table-wrapper {
   overflow-x: auto;
   border-radius: 10px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111827;
 }
 
 .scoreboard-table {
@@ -107,8 +123,8 @@
 }
 
 .scoreboard-table thead tr {
-  background: #f8fafc;
-  border-bottom: 2px solid #e2e8f0;
+  background: #1F2937;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .scoreboard-table th {
@@ -118,7 +134,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #6b7280;
+  color: #9CA3AF;
   white-space: nowrap;
 }
 
@@ -130,8 +146,8 @@
 
 .scoreboard-table td {
   padding: 12px;
-  border-bottom: 1px solid #f1f5f9;
-  color: #374151;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: #D1D5DB;
   vertical-align: middle;
 }
 
@@ -140,27 +156,27 @@
 }
 
 .scoreboard-table tbody tr:hover {
-  background: #f9fafb;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .scoreboard-table tbody tr.row--top td {
-  background: #fffbeb;
+  background: rgba(245, 158, 11, 0.05);
 }
 
 .scoreboard-table tbody tr.row--top:hover td {
-  background: #fef9c3;
+  background: rgba(245, 158, 11, 0.08);
 }
 
 .cell-rank { font-size: 16px; }
-.cell-name { font-weight: 600; color: #111827; }
+.cell-name { font-weight: 600; color: #F9FAFB; }
 .cell-pts  { font-size: 15px; }
-.cell-exact, .cell-played { color: #6b7280; }
+.cell-exact, .cell-played { color: #9CA3AF; }
 
 /* ── Legend ─────────────────────────────────────────────────────────────────── */
 .scoreboard__legend {
   text-align: center;
   font-size: 12px;
-  color: #6b7280;
+  color: #9CA3AF;
 }
 
 .scoreboard__legend p {
@@ -180,8 +196,8 @@
   border-radius: 999px;
 }
 
-.legend-pill--3 { background: #fef9c3; color: #713f12; }
-.legend-pill--1 { background: #dcfce7; color: #14532d; }
+.legend-pill--3 { background: rgba(245, 158, 11, 0.1); color: #FCD34D; }
+.legend-pill--1 { background: rgba(16, 185, 129, 0.1); color: #6EE7B7; }
 
 /* ── Error & empty states ───────────────────────────────────────────────────── */
 .scoreboard-error {
@@ -190,7 +206,7 @@
   align-items: center;
   gap: 12px;
   padding: 40px 20px;
-  color: #dc2626;
+  color: #F87171;
   text-align: center;
 }
 
@@ -200,18 +216,19 @@
   gap: 6px;
   font-size: 13px;
   font-weight: 600;
-  color: #dc2626;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
+  color: #F87171;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
   border-radius: 8px;
   padding: 8px 16px;
   cursor: pointer;
   min-height: 44px;
-  transition: background 0.15s;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .btn-retry:hover {
-  background: #fee2e2;
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 .scoreboard-empty {
@@ -221,16 +238,16 @@
   gap: 10px;
   padding: 40px 20px;
   text-align: center;
-  color: #6b7280;
+  color: #9CA3AF;
 }
 
 .scoreboard-empty__icon {
-  color: #d1d5db;
+  color: #6B7280;
 }
 
 .scoreboard-empty__hint {
   font-size: 12px;
-  color: #9ca3af;
+  color: #6B7280;
   margin: 0;
 }
 
