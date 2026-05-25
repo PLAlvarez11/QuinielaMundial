@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
-import { createLeague, updateLeague } from '../../api/leaguesApi';
+import { useParams, useNavigate } from 'react-router-dom';
+import { createLeague, updateLeague, getLeagueDetail } from '../../api/leaguesApi';
 import Loader from '../../components/Loader';
 import './LeagueForm.css';
 
-export default function LeagueForm({ league = null, onSuccess, onCancel }) {
+export default function LeagueForm() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const isEditMode = !!id;
+  const [league, setLeague] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -13,21 +18,35 @@ export default function LeagueForm({ league = null, onSuccess, onCancel }) {
     status: 'active',
   });
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(isEditMode);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (league) {
-      setFormData({
-        name: league.name,
-        description: league.description || '',
-        type: league.type,
-        entry_fee: league.entry_fee.toString(),
-        max_members: league.max_members.toString(),
-        status: league.status,
-      });
+    if (isEditMode) {
+      fetchLeague();
     }
-  }, [league]);
+  }, [id]);
+
+  const fetchLeague = async () => {
+    try {
+      setLoading(true);
+      const data = await getLeagueDetail(id);
+      setLeague(data);
+      setFormData({
+        name: data.name,
+        description: data.description || '',
+        type: data.type,
+        entry_fee: data.entry_fee.toString(),
+        max_members: data.max_members.toString(),
+        status: data.status,
+      });
+    } catch (err) {
+      setError('Error al cargar la liga: ' + err.message);
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,13 +80,13 @@ export default function LeagueForm({ league = null, onSuccess, onCancel }) {
       };
 
       let result;
-      if (league) {
-        result = await updateLeague(league.id, dataToSubmit);
+      if (isEditMode) {
+        result = await updateLeague(id, dataToSubmit);
       } else {
         result = await createLeague(dataToSubmit);
       }
 
-      onSuccess(result);
+      navigate(`/m2-league/${result.id}`);
     } catch (err) {
       setError(err.response?.data?.detail || 'Error al guardar la liga: ' + err.message);
       console.error(err);
@@ -80,7 +99,7 @@ export default function LeagueForm({ league = null, onSuccess, onCancel }) {
 
   return (
     <div className="league-form-container">
-      <h2>{league ? 'Editar Liga' : 'Crear Nueva Liga'}</h2>
+      <h2>{isEditMode ? 'Editar Liga' : 'Crear Nueva Liga'}</h2>
 
       {error && <div className="alert alert-error">{error}</div>}
 
@@ -174,9 +193,9 @@ export default function LeagueForm({ league = null, onSuccess, onCancel }) {
 
         <div className="form-actions">
           <button type="submit" className="btn btn-primary">
-            {league ? 'Actualizar Liga' : 'Crear Liga'}
+            {isEditMode ? 'Actualizar Liga' : 'Crear Liga'}
           </button>
-          <button type="button" className="btn btn-secondary" onClick={onCancel}>
+          <button type="button" className="btn btn-secondary" onClick={() => navigate('/m2-league/list')}>
             Cancelar
           </button>
         </div>

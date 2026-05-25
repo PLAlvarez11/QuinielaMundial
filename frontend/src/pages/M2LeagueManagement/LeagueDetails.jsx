@@ -1,19 +1,48 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { getLeagueDetail } from '../../api/leaguesApi';
 import LeagueMembersManager from './LeagueMembersManager';
 import InvitationManager from './InvitationManager';
+import Loader from '../../components/Loader';
 import './LeagueDetails.css';
 
-export default function LeagueDetails({ league, onEdit, onBack }) {
-  const [activeTab, setActiveTab] = useState('overview'); // 'overview', 'members', 'invitations'
+export default function LeagueDetails() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [league, setLeague] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [activeTab, setActiveTab] = useState('overview');
+
+  useEffect(() => {
+    fetchLeague();
+  }, [id]);
+
+  const fetchLeague = async () => {
+    try {
+      setLoading(true);
+      const data = await getLeagueDetail(id);
+      setLeague(data);
+    } catch (err) {
+      setError('Error al cargar la liga: ' + err.message);
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) return <Loader />;
+  if (error) return <div className="alert alert-error">{error}</div>;
+  if (!league) return <div className="alert alert-error">Liga no encontrada</div>;
 
   return (
     <div className="league-details-container">
       <div className="league-details-header">
-        <button className="btn-back" onClick={onBack}>
+        <button className="btn-back" onClick={() => navigate('/m2-league/list')}>
           ← Volver
         </button>
         <h2>{league.name}</h2>
-        <button className="btn btn-primary btn-sm" onClick={onEdit}>
+        <button className="btn btn-primary btn-sm" onClick={() => navigate(`/m2-league/${id}/edit`)}>
           ✎ Editar
         </button>
       </div>

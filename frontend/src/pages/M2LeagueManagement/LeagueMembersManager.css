@@ -1,30 +1,33 @@
 .league-members-container {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #1F2937;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 32px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
 .members-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 16px;
 }
 
 .members-header h3 {
   margin: 0;
-  color: #333;
+  color: #F9FAFB;
   font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
 }
 
 .progress-bar {
   display: inline-block;
   width: 200px;
   height: 8px;
-  background-color: #e9ecef;
+  background-color: rgba(255,255,255,0.1);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -32,7 +35,7 @@
 .progress-fill {
   display: block;
   height: 100%;
-  background-color: #0066cc;
+  background: linear-gradient(90deg, #2563EB 0%, #1D4ED8 100%);
   transition: width 0.3s ease;
 }
 
@@ -47,116 +50,131 @@
 }
 
 .members-table thead {
-  background-color: #f9f9f9;
-  border-bottom: 2px solid #e0e0e0;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .members-table th {
-  padding: 12px;
+  padding: 16px;
   text-align: left;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #9CA3AF;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .members-table td {
-  padding: 12px;
-  border-bottom: 1px solid #e9ecef;
-  color: #666;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: #D1D5DB;
+  transition: all 0.3s ease;
 }
 
 .members-table tbody tr:hover {
-  background-color: #f9f9f9;
+  background-color: rgba(37, 99, 235, 0.08);
 }
 
 .points-cell {
   font-size: 16px;
+  color: #2563EB;
+  font-weight: 700;
 }
 
 .actions-cell {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .form-input,
 .form-select {
-  padding: 6px 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
   font-size: 13px;
   width: 100%;
+  background-color: #111827;
+  color: #F9FAFB;
+  transition: all 0.3s ease;
 }
 
 .form-input:focus,
 .form-select:focus {
   outline: none;
-  border-color: #0066cc;
-  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .btn-xs {
-  padding: 4px 8px;
-  font-size: 11px;
+  padding: 6px 10px;
+  font-size: 12px;
   border: none;
-  border-radius: 3px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   white-space: nowrap;
+  font-weight: 600;
 }
 
 .btn-success {
-  background-color: #28a745;
-  color: white;
+  background-color: #10B981;
+  color: #F9FAFB;
 }
 
 .btn-success:hover {
-  background-color: #218838;
+  background-color: #059669;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
 }
 
 .badge-active {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10B981;
 }
 
 .badge-inactive {
-  background-color: #fff3cd;
-  color: #856404;
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
 }
 
 .badge-suspended {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
 }
 
 .badge {
   display: inline-block;
-  padding: 4px 8px;
-  border-radius: 3px;
-  font-size: 12px;
-  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .empty-state {
   text-align: center;
-  padding: 40px 20px;
-  color: #999;
-  background-color: #f9f9f9;
-  border-radius: 4px;
+  padding: 60px 40px;
+  color: #9CA3AF;
+  background-color: #111827;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .empty-state p {
   margin: 0;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .alert-error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-  padding: 12px 16px;
-  border-radius: 4px;
-  margin-bottom: 20px;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #FECACA;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {

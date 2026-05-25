@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getLeagues, deleteLeague } from '../../api/leaguesApi';
 import ConfirmModal from '../../components/ConfirmModal';
 import Loader from '../../components/Loader';
 import './LeagueList.css';
 
-export default function LeagueList({ onSelectLeague, onCreateNew }) {
+export default function LeagueList() {
+  const navigate = useNavigate();
   const [leagues, setLeagues] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -60,7 +62,7 @@ export default function LeagueList({ onSelectLeague, onCreateNew }) {
     <div className="league-list-container">
       <div className="league-list-header">
         <h2>Mis Ligas</h2>
-        <button className="btn btn-primary" onClick={onCreateNew}>
+        <button className="btn btn-primary" onClick={() => navigate('/m2-league/create')}>
           + Nueva Liga
         </button>
       </div>
@@ -83,7 +85,7 @@ export default function LeagueList({ onSelectLeague, onCreateNew }) {
       {filteredLeagues.length === 0 ? (
         <div className="empty-state">
           <p>No hay ligas para mostrar</p>
-          <button className="btn btn-primary" onClick={onCreateNew}>
+          <button className="btn btn-primary" onClick={() => navigate('/m2-league/create')}>
             Crear primera liga
           </button>
         </div>
@@ -126,7 +128,7 @@ export default function LeagueList({ onSelectLeague, onCreateNew }) {
               <div className="league-card-footer">
                 <button
                   className="btn btn-sm btn-secondary"
-                  onClick={() => onSelectLeague(league)}
+                  onClick={() => navigate(`/m2-league/${league.id}`)}
                 >
                   Ver Detalles
                 </button>
