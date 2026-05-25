@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/catalogo/', include('catalogo.urls')),
     path('api/', include('users.urls')),
     path('api/prizes/', include('prizes.urls')),
+    path('api/predictions/', include('prediction_engine.urls')),
 ]
