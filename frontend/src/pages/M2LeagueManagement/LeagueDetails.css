@@ -1,0 +1,313 @@
+.league-details-container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.league-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #0066cc;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+  background-color: #f0f0f0;
+  color: #0052a3;
+}
+
+.league-details-header h2 {
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+  color: #333;
+  font-size: 28px;
+}
+
+.league-overview-card {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.overview-section h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 18px;
+}
+
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #666;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.info-value {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+  word-break: break-word;
+}
+
+.info-block p.info-value {
+  margin: 0;
+}
+
+.tabs-container {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid #e0e0e0;
+  background-color: #f9f9f9;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  color: #666;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.tab-button:hover {
+  color: #333;
+}
+
+.tab-button.active {
+  color: #0066cc;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #0066cc;
+}
+
+.tabs-content {
+  padding: 25px;
+}
+
+.tab-pane {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overview-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 13px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.league-info-detailed {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 6px;
+  border-left: 4px solid #0066cc;
+}
+
+.league-info-detailed h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.league-info-detailed ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.league-info-detailed li {
+  color: #666;
+  font-size: 14px;
+}
+
+.league-info-detailed strong {
+  color: #333;
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.badge-active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.badge-inactive {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.badge-finished {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #0066cc;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0052a3;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .league-details-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .league-details-header h2 {
+    width: 100%;
+  }
+
+  .tabs-header {
+    flex-direction: column;
+  }
+
+  .overview-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .league-info-detailed ul {
+    grid-template-columns: 1fr;
+  }
+
+  .tab-button::after {
+    display: none;
+  }
+
+  .tab-button.active {
+    background-color: #f0f8ff;
+  }
+}
+
+@media (max-width: 480px) {
+  .league-details-container {
+    padding: 10px;
+  }
+
+  .league-overview-card,
+  .tabs-container {
+    padding: 15px;
+  }
+
+  .overview-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-number {
+    font-size: 24px;
+  }
+}
