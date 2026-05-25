@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { styles } from './styles';
 import { validateLoginForm, loginUser } from '../utils';
+import { useAuth } from '../../../context/useAuth';
 import './styles.css';
 
 export default function Login({ onLoginSuccess, onSwitchToRegister }) {
+  const { login } = useAuth();
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
@@ -50,6 +52,9 @@ export default function Login({ onLoginSuccess, onSwitchToRegister }) {
       setLoading(false);
       return;
     }
+
+    // Guardar en el contexto global
+    login(result.user, result.token);
 
     setSuccess('¡Login exitoso!');
     setLoginData({ email: '', password: '' });

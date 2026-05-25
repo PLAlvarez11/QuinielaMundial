@@ -58,7 +58,7 @@ export const loginUser = async (email, password) => {
     // Guardar en el singleton
     userSingleton.setUser(data.user, data.token);
 
-    return { success: true, user: data.user };
+    return { success: true, user: data.user, token: data.token };
   } catch (err) {
     return { success: false, error: 'Error de conexión: ' + err.message };
   }

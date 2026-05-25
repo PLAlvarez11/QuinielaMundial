@@ -263,6 +263,32 @@
   background: rgba(255, 68, 68, 0.1);
 }
 
+/* Dropdown User Info */
+.dropdown-user-info {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(0, 102, 255, 0.05);
+}
+
+.dropdown-user-info .user-email {
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-user-info .user-name {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* ========== HAMBURGER MENU ========== */
 .hamburger {
   display: none;

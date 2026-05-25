@@ -1,25 +1,31 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import { styles } from './components/styles';
-import { logoutUser } from './utils';
-import userSingleton from './userSingleton';
+import { useAuth } from '../../context/useAuth';
 import './components/styles.css';
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
-  const [user, setUser] = useState(null);
+  const { isAuthenticated, user, logout } = useAuth();
+  const navigate = useNavigate();
   const [isHoveringLogout, setIsHoveringLogout] = useState(false);
 
-  // Cargar usuario del singleton al montar
+  // Redirigir a inicio si ya está autenticado
   useEffect(() => {
-    if (userSingleton.isAuthenticated()) {
-      setUser(userSingleton.getUser());
+    if (isAuthenticated) {
+      // Mostrar la pantalla de bienvenida por un momento antes de redirigir
+      const timer = setTimeout(() => {
+        navigate('/');
+      }, 3000);
+      return () => clearTimeout(timer);
     }
-  }, []);
+  }, [isAuthenticated, navigate]);
 
-  const handleLoginSuccess = (userData) => {
-    setUser(userData);
+  const handleLoginSuccess = () => {
+    // El contexto ya está actualizado, no hacer nada aquí
+    // La redirección ocurre automáticamente por useEffect
   };
 
   const handleRegisterSuccess = () => {
@@ -37,28 +43,29 @@ export default function AuthPage() {
   };
 
   const handleLogout = () => {
-    logoutUser();
-    setUser(null);
+    logout();
   };
 
   // Si el usuario está logueado, mostrar pantalla de bienvenida
-  if (user || userSingleton.isAuthenticated()) {
-    const currentUser = user || userSingleton.getUser() || {};
+  if (isAuthenticated && user) {
     return (
       <div style={styles.container}>
         <div style={styles.card} className="auth-card">
           <h1 style={styles.title}>Bienvenido 👋</h1>
           <div style={styles.userInfo}>
             <p style={styles.infoText}>
-              <strong>Email:</strong> {currentUser.email}
+              <strong>Email:</strong> {user.email}
             </p>
             <p style={styles.infoText}>
-              <strong>Nombre:</strong> {currentUser.name}
+              <strong>Nombre:</strong> {user.name}
             </p>
             <p style={styles.infoText}>
-              <strong>ID:</strong> {currentUser.id}
+              <strong>ID:</strong> {user.id}
             </p>
           </div>
+          <p style={{ ...styles.infoText, fontSize: '14px', color: '#9CA3AF', marginTop: '20px' }}>
+            Serás redirigido al inicio en breve...
+          </p>
           <button
             onClick={handleLogout}
             style={{

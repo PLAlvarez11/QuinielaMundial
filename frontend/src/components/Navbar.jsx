@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/useAuth';
 import './Navbar.css';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const isAuthenticated = false; // TODO: Conectar con estado de autenticación real
+  const { isAuthenticated, user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,14 +21,22 @@ export default function Navbar() {
     setIsUserMenuOpen(!isUserMenuOpen);
   };
 
+  const handleLogout = () => {
+    logout();
+    setIsUserMenuOpen(false);
+    navigate('/m1-auth');
+  };
+
   const menuItems = [
     { path: '/', label: 'Inicio' },
-    { path: '/m2-league', label: 'Ligas' },
-    { path: '/m3-prediction', label: 'Vaticinios' },
-    { path: '/m4-scoreboard', label: 'Marcador' },
-    { path: '/m5-worldcup', label: 'Mundial' },
-    { path: '/prizes', label: 'Premios' },
-    { path: '/m7-admin', label: 'Admin' },
+    ...(isAuthenticated ? [
+      { path: '/m2-league', label: 'Ligas' },
+      { path: '/m3-prediction', label: 'Vaticinios' },
+      { path: '/m4-scoreboard', label: 'Marcador' },
+      { path: '/m5-worldcup', label: 'Mundial' },
+      { path: '/prizes', label: 'Premios' },
+      { path: '/m7-admin', label: 'Admin' },
+    ] : []),
   ];
 
   return (
@@ -73,18 +83,20 @@ export default function Navbar() {
                 className="user-avatar"
                 onClick={toggleUserMenu}
                 aria-label="User menu"
+                title={user?.email}
               >
                 <span className="avatar-icon">👤</span>
               </button>
               {isUserMenuOpen && (
                 <div className="user-dropdown">
-                  <Link to="/profile" className="dropdown-item">
-                    Mi Perfil
-                  </Link>
-                  <Link to="/settings" className="dropdown-item">
-                    Configuración
-                  </Link>
-                  <button className="dropdown-item logout">
+                  <div className="dropdown-user-info">
+                    <p className="user-email">{user?.email}</p>
+                    <p className="user-name">{user?.name}</p>
+                  </div>
+                  <button 
+                    onClick={handleLogout}
+                    className="dropdown-item logout"
+                  >
                     Cerrar Sesión
                   </button>
                 </div>
@@ -94,9 +106,6 @@ export default function Navbar() {
             <>
               <Link to="/m1-auth" className="auth-btn signin">
                 Iniciar Sesión
-              </Link>
-              <Link to="/m1-auth" className="auth-btn signup">
-                Registrarse
               </Link>
             </>
           )}
