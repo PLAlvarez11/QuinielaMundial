@@ -1,0 +1,355 @@
+/* PredictionEngine.css — Module-level styles. Mobile-first. */
+/* Breakpoints: 360px (base) · 768px · 1280px                 */
+
+/* ── Page wrapper ───────────────────────────────────────────────────────────── */
+.pe-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+.pe-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pe-page__title-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pe-page__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* ── League selector ────────────────────────────────────────────────────────── */
+.pe-league-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pe-league-selector__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.pe-league-selector__select {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  /* Minimum 44px height for touch */
+  min-height: 44px;
+  appearance: auto;
+}
+
+.pe-league-selector__select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.pe-no-leagues {
+  font-size: 13px;
+  color: #6b7280;
+  background: #f8fafc;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px dashed #e2e8f0;
+  margin: 0;
+}
+
+/* ── Summary stats ──────────────────────────────────────────────────────────── */
+.pe-stats {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pe-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 20px;
+  min-width: 80px;
+  flex: 1;
+}
+
+.pe-stat--alert .pe-stat__value {
+  color: #f59e0b;
+}
+
+.pe-stat__value {
+  font-size: 24px;
+  font-weight: 900;
+  color: #1e293b;
+  line-height: 1;
+}
+
+.pe-stat__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* ── Tab navigation ─────────────────────────────────────────────────────────── */
+.pe-tabs {
+  display: flex;
+  gap: 0;
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.pe-tab {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  /* 44px minimum touch target */
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.pe-tab--active {
+  background: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pe-tab:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* ── Content area ───────────────────────────────────────────────────────────── */
+.pe-content {
+  min-height: 200px;
+}
+
+/* ── Filter bar ─────────────────────────────────────────────────────────────── */
+.pe-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.pe-filter-bar__icon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.pe-filter-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  min-height: 36px;
+}
+
+.filter-chip:hover {
+  background: #f1f5f9;
+}
+
+.filter-chip--active {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+.btn-reload {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.btn-reload:hover {
+  background: #f1f5f9;
+}
+
+/* ── Match grid ─────────────────────────────────────────────────────────────── */
+.pe-match-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+/* ── Error state ────────────────────────────────────────────────────────────── */
+.pe-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 20px;
+  color: #dc2626;
+  text-align: center;
+}
+
+.btn-retry-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  min-height: 44px;
+  transition: background 0.15s;
+}
+
+.btn-retry-main:hover {
+  background: #fee2e2;
+}
+
+/* ── Empty state ────────────────────────────────────────────────────────────── */
+.pe-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  color: #9ca3af;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ── Tablet (768px+) ────────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .pe-page {
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .pe-page__title-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pe-page__title {
+    font-size: 26px;
+  }
+
+  .pe-league-selector {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .pe-league-selector__select {
+    min-width: 220px;
+  }
+
+  .pe-match-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .pe-stat {
+    padding: 14px 24px;
+  }
+
+  .pe-stat__value {
+    font-size: 28px;
+  }
+}
+
+/* ── Desktop (1280px+) ──────────────────────────────────────────────────────── */
+@media (min-width: 1280px) {
+  .pe-page {
+    padding: 32px 40px;
+  }
+
+  .pe-page__title {
+    font-size: 28px;
+  }
+
+  .pe-match-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ── Keyboard focus ring (high-contrast mode support) ───────────────────────── */
+@media (forced-colors: active) {
+  .score-input:focus,
+  .btn-save:focus-visible,
+  .btn-delete:focus-visible,
+  .pe-tab:focus-visible {
+    outline: 3px solid ButtonText;
+  }
+}

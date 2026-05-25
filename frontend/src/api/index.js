@@ -2,4 +2,5 @@
 
 export * from './prizesApi';
 export * from './leaguesApi';
+export * from './predictionsApi';
 export { default as axiosInstance } from './axiosConfig';
