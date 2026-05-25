@@ -1,7 +1,8 @@
 .table-container {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #111827;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
@@ -9,40 +10,41 @@
   width: 100%;
   border-collapse: collapse;
   margin: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 .table thead {
-  background-color: #f8f9fa;
-  border-bottom: 2px solid #dee2e6;
+  background-color: #1F2937;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .table th {
-  padding: 15px;
+  padding: 16px 12px;
   text-align: left;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  color: #495057;
+  color: #9CA3AF;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 }
 
 .table tbody tr {
-  border-bottom: 1px solid #dee2e6;
-  transition: background-color 0.2s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
 }
 
 .table tbody tr:hover {
-  background-color: #f8f9fa;
+  background-color: rgba(37, 99, 235, 0.05);
 }
 
 .table td {
-  padding: 15px;
+  padding: 16px 12px;
   font-size: 14px;
-  color: #495057;
+  color: #E5E7EB;
 }
 
 .table-row {
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .table-row:last-child {
@@ -52,60 +54,66 @@
 /* Badges y estilos */
 .badge-league {
   display: inline-block;
-  background-color: #e3f2fd;
-  color: #1976d2;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(37, 99, 235, 0.1));
+  color: #60A5FA;
   padding: 6px 12px;
-  border-radius: 12px;
+  border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
+  border: 1px solid rgba(37, 99, 235, 0.3);
 }
 
 .position-badge {
   display: inline-block;
-  background-color: #f3e5f5;
-  color: #7b1fa2;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+  color: #6EE7B7;
   padding: 6px 12px;
-  border-radius: 12px;
+  border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .type-badge {
   display: inline-block;
   padding: 6px 12px;
-  border-radius: 12px;
+  border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
+  border: 1px solid;
 }
 
 .type-league {
-  background-color: #e8f5e9;
-  color: #2e7d32;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+  color: #6EE7B7;
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .type-global {
-  background-color: #fce4ec;
-  color: #c2185b;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.1));
+  color: #FCD34D;
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 .type-tie {
-  background-color: #fff3e0;
-  color: #e65100;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
+  color: #FCA5A5;
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 .member-name {
   font-weight: 500;
-  color: #212529;
+  color: #F9FAFB;
 }
 
 .amount-value {
   font-weight: 600;
-  color: #28a745;
+  color: #10B981;
   font-size: 15px;
 }
 
 .date-value {
-  color: #6c757d;
+  color: #9CA3AF;
   font-size: 13px;
 }
 
@@ -125,37 +133,37 @@
 }
 
 .btn-action {
-  background: none;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
   padding: 6px 8px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
-  color: #495057;
+  transition: all 0.3s ease;
+  color: #9CA3AF;
 }
 
 .btn-action:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn-edit:hover:not(:disabled) {
-  background-color: #e3f2fd;
-  color: #1976d2;
-  border-color: #1976d2;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(37, 99, 235, 0.1));
+  color: #60A5FA;
+  border-color: rgba(37, 99, 235, 0.5);
 }
 
 .btn-delete:hover:not(:disabled) {
-  background-color: #ffebee;
-  color: #d32f2f;
-  border-color: #d32f2f;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
+  color: #FCA5A5;
+  border-color: rgba(239, 68, 68, 0.5);
 }
 
 .btn-action:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
@@ -163,24 +171,25 @@
   padding: 60px 20px;
   text-align: center;
   background: #111827;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .empty-state-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
+  opacity: 0.6;
 }
 
 .empty-state h3 {
-  color: #212529;
+  color: #F9FAFB;
   margin-bottom: 8px;
   font-size: 18px;
   font-weight: 600;
 }
 
 .empty-state p {
-  color: #6c757d;
+  color: #9CA3AF;
   margin: 0;
   font-size: 14px;
 }
@@ -193,7 +202,7 @@
 
   .table th,
   .table td {
-    padding: 12px;
+    padding: 12px 8px;
     font-size: 12px;
   }
 

@@ -116,7 +116,7 @@ const PrizeList = () => {
           </p>
         </div>
         <button
-          className="btn btn-primary btn-new"
+          className="btn btn-new"
           onClick={() => navigate('create')}
         >
           <FiPlus size={18} />
