@@ -20,8 +20,9 @@ from django.urls import path, include, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/catalogo/', include('catalogo.urls')),
-    path('api/', include('users.urls')),
+    path('api/leagues/', include('leagues_app.urls')),
+    path('api/users/', include('users.urls')),
     path('api/prizes/', include('prizes.urls')),
     path('api/predictions/', include('prediction_engine.urls')),
-    path('tabla-posiciones/', include('tabla_posiciones.urls')),
+    path('api/tabla-posiciones/', include('tabla_posiciones.urls')),
 ]

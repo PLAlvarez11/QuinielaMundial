@@ -8,6 +8,5 @@ router.register(r'members', LeagueMemberViewSet)
 router.register(r'invitations', InvitationViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('leagues_app.urls')), 
+    path('', include(router.urls)),
 ]

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.db.models import Sum, Case, When, IntegerField
 
 
@@ -47,7 +47,7 @@ class Match(models.Model):
 
 class Prediction(models.Model):
     """Modelo para las predicciones de los usuarios"""
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     match = models.ForeignKey(Match, on_delete=models.CASCADE)
     predicted_home_score = models.IntegerField()
     predicted_away_score = models.IntegerField()
@@ -101,7 +101,7 @@ class Prediction(models.Model):
 
 class Standing(models.Model):
     """Modelo para la tabla de posiciones"""
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     round_number = models.IntegerField(default=1)
     position = models.IntegerField()
     total_points = models.IntegerField(default=0)
