@@ -1,0 +1,169 @@
+/* M4 Scoreboard - Main CSS */
+
+.m4-scoreboard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px;
+  background: #0F172A;
+  color: #F9FAFB;
+  min-height: 100vh;
+}
+
+/* ── Header ────────────────────────────────────────────────────────────────── */
+.m4-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.m4-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #F9FAFB;
+}
+
+.m4-subtitle {
+  font-size: 14px;
+  color: #9CA3AF;
+  margin: 0;
+}
+
+/* ── Controls ──────────────────────────────────────────────────────────────── */
+.m4-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.league-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.selector-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #D1D5DB;
+}
+
+.selector-input {
+  padding: 8px 12px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 6px;
+  background: #1F2937;
+  color: #F9FAFB;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 200px;
+}
+
+.selector-input:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  background: #111827;
+}
+
+.selector-input:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.selector-input option {
+  background: #1F2937;
+  color: #F9FAFB;
+}
+
+/* ── Tabs Navigation ───────────────────────────────────────────────────────── */
+.m4-tabs {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0;
+}
+
+.tabs-nav {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  justify-content: center;
+}
+
+.tab-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  color: #9CA3AF;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tab-button:hover {
+  color: #D1D5DB;
+  border-bottom-color: rgba(59, 130, 246, 0.3);
+}
+
+.tab-button--active {
+  color: #3B82F6;
+  border-bottom-color: #3B82F6;
+}
+
+/* ── Content Area ──────────────────────────────────────────────────────────── */
+.m4-content {
+  flex: 1;
+}
+
+.m4-content > div {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .m4-scoreboard {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  .m4-header h1 {
+    font-size: 24px;
+  }
+
+  .m4-subtitle {
+    font-size: 12px;
+  }
+
+  .league-selector {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .selector-input {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .tabs-nav {
+    justify-content: flex-start;
+  }
+}

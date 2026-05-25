@@ -1,0 +1,357 @@
+/* Standings.css — Mobile-first table and podium styles */
+
+/* ── Section wrapper ────────────────────────────────────────────────────────── */
+.standings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Error state ────────────────────────────────────────────────────────────── */
+.standings-error,
+.standings-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: #111827;
+  text-align: center;
+  min-height: 300px;
+}
+
+.standings-error p,
+.standings-empty p {
+  margin: 0;
+  color: #9CA3AF;
+  font-size: 14px;
+}
+
+.standings-empty__icon {
+  color: #4B5563;
+  opacity: 0.5;
+}
+
+.standings-empty__hint {
+  font-size: 12px;
+  color: #6B7280 !important;
+}
+
+.btn-retry {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 6px;
+  color: #60A5FA;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-retry:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+.standings__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.standings__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #F9FAFB;
+  margin: 0;
+}
+
+.btn-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #60A5FA;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  min-height: 36px;
+}
+
+.btn-refresh:hover {
+  background: rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+/* ── Podium cards ───────────────────────────────────────────────────────────── */
+.standings__podium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.podium-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  background: #111827;
+  transition: all 0.2s ease;
+}
+
+.podium-card--1 { 
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.podium-card--2 { 
+  background: linear-gradient(135deg, rgba(107, 114, 128, 0.08), rgba(107, 114, 128, 0.04));
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.podium-card--3 { 
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.04));
+  border-color: rgba(239, 68, 68, 0.15);
+}
+
+.podium-medal {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.podium-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #F9FAFB;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.podium-pts {
+  font-size: 18px;
+  font-weight: 900;
+  color: #F9FAFB;
+}
+
+.podium-pts small {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9CA3AF;
+  margin-left: 2px;
+}
+
+.podium-variation {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6B7280;
+  margin-top: 2px;
+}
+
+/* ── Table ──────────────────────────────────────────────────────────────────── */
+.standings__table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111827;
+}
+
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.standings-table thead tr {
+  background: #1F2937;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.standings-table th {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #9CA3AF;
+  white-space: nowrap;
+}
+
+.standings-table th:first-child,
+.standings-table td.cell-rank {
+  text-align: center;
+  width: 44px;
+}
+
+.standings-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: #D1D5DB;
+}
+
+.standings-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.standings-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.standings-row--top {
+  background: rgba(59, 130, 246, 0.03);
+}
+
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-weight: 700;
+  color: #F9FAFB;
+}
+
+.rank-medal {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.cell-user {
+  font-weight: 600;
+  color: #F9FAFB;
+}
+
+.cell-points {
+  font-size: 14px;
+  font-weight: 700;
+  color: #60A5FA;
+}
+
+.cell-change {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.change-up {
+  color: #10B981;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.change-down {
+  color: #EF4444;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.change-neutral {
+  color: #9CA3AF;
+}
+
+.cell-previous {
+  font-size: 12px;
+  color: #9CA3AF;
+}
+
+/* ── Info section ──────────────────────────────────────────────────────────── */
+.standings__info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.info-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.info-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #60A5FA;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .standings__podium {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .standings-table {
+    font-size: 12px;
+  }
+
+  .standings-table th,
+  .standings-table td {
+    padding: 8px;
+  }
+
+  .standings__info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .standings__podium {
+    grid-template-columns: 1fr;
+  }
+
+  .standings-table {
+    font-size: 11px;
+  }
+
+  .standings-table th,
+  .standings-table td {
+    padding: 6px;
+  }
+
+  .podium-card {
+    padding: 12px 8px;
+  }
+
+  .podium-name {
+    font-size: 11px;
+  }
+
+  .podium-pts {
+    font-size: 16px;
+  }
+}

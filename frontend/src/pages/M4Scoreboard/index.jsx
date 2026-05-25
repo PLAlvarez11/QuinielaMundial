@@ -1,3 +1,3 @@
-import M4ScoreboardMain from './main';
-
-export default M4ScoreboardMain;
+export { default } from './main';
+export { default as Standings } from './Standings';
+export { default as Matches } from './Matches';
