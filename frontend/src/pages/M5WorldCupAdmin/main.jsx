@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import CatalogoRoutes from '../../routes/CatalogoRoutes';
 import './Catalogo.css';
 
 export default function M5WorldCupAdminMain() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = [
     { label: 'Sedes', path: 'venues', icon: '🏛️' },
@@ -21,6 +22,10 @@ export default function M5WorldCupAdminMain() {
     navigate(path);
   };
 
+  const isActive = (path) => {
+    return location.pathname.includes(path);
+  };
+
   return (
     <div className="catalogo-container">
       <div className={`catalogo-sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
@@ -29,6 +34,7 @@ export default function M5WorldCupAdminMain() {
           <button
             className="sidebar-toggle"
             onClick={() => setSidebarOpen(!sidebarOpen)}
+            aria-label={sidebarOpen ? 'Contraer menú' : 'Expandir menú'}
           >
             {sidebarOpen ? '◀' : '▶'}
           </button>
@@ -38,7 +44,7 @@ export default function M5WorldCupAdminMain() {
             <button
               key={item.path}
               onClick={() => handleMenuItemClick(item.path)}
-              className="menu-item"
+              className={`menu-item ${isActive(item.path) ? 'active' : ''}`}
               title={item.label}
             >
               <span className="menu-icon">{item.icon}</span>

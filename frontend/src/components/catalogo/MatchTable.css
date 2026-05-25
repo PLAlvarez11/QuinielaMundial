@@ -5,42 +5,55 @@
 .match-table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .match-table thead {
-  background-color: #f8f9fa;
-  border-bottom: 2px solid #dee2e6;
+  background-color: #1F2937;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .match-table th {
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   text-align: left;
   font-weight: 600;
-  color: #333;
+  color: #9CA3AF;
   cursor: pointer;
   user-select: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .match-table th:hover {
-  background-color: #e9ecef;
+  background-color: rgba(37, 99, 235, 0.1);
+  color: #2563EB;
 }
 
 .match-table td {
-  padding: 1rem;
-  border-bottom: 1px solid #dee2e6;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #F9FAFB;
+  font-size: 0.95rem;
+}
+
+.match-table tbody tr {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .match-table tbody tr:hover {
-  background-color: #f8f9fa;
+  background-color: rgba(37, 99, 235, 0.05);
 }
 
 .match-table .score {
   font-weight: 600;
   text-align: center;
+  color: #2563EB;
 }
 
 .match-table .status-badge {
@@ -54,28 +67,57 @@
 }
 
 .match-table .status-scheduled {
-  background-color: #cfe2ff;
-  color: #084298;
+  background-color: rgba(37, 99, 235, 0.2);
+  color: #2563EB;
 }
 
 .match-table .status-in_progress {
-  background-color: #fff3cd;
-  color: #664d03;
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #F59E0B;
 }
 
 .match-table .status-finished {
-  background-color: #d1e7dd;
-  color: #0f5132;
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10B981;
 }
 
 .match-table .status-cancelled {
-  background-color: #f8d7da;
-  color: #842029;
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #EF4444;
 }
 
 .match-table .actions {
   display: flex;
   gap: 0.5rem;
+}
+
+.match-table .btn-edit,
+.match-table .btn-delete {
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.match-table .btn-edit {
+  color: #2563EB;
+}
+
+.match-table .btn-edit:hover {
+  background-color: rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.match-table .btn-delete {
+  color: #EF4444;
+}
+
+.match-table .btn-delete:hover {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 .match-table .btn-edit,
