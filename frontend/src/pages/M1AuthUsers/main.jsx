@@ -9,6 +9,7 @@ import './components/styles.css';
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
   const [user, setUser] = useState(null);
+  const [isHoveringLogout, setIsHoveringLogout] = useState(false);
 
   // Cargar usuario del singleton al montar
   useEffect(() => {
@@ -58,7 +59,16 @@ export default function AuthPage() {
               <strong>ID:</strong> {currentUser.id}
             </p>
           </div>
-          <button onClick={handleLogout} style={styles.logoutButton} className="logout-button">
+          <button
+            onClick={handleLogout}
+            style={{
+              ...styles.logoutButton,
+              ...(isHoveringLogout && styles.logoutButtonHover),
+            }}
+            className="logout-button"
+            onMouseEnter={() => setIsHoveringLogout(true)}
+            onMouseLeave={() => setIsHoveringLogout(false)}
+          >
             Cerrar Sesión
           </button>
         </div>
