@@ -1,6 +1,6 @@
 import userSingleton from './userSingleton';
 
-const API_BASE_URL = 'http://localhost:8003/api';
+const API_BASE_URL = 'http://localhost:8003/api/users';
 
 export const validateLoginForm = (loginData) => {
   if (!loginData.email.trim()) {
