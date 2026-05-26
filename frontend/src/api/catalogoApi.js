@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = `${import.meta.env.VITE_API_URL}api/catalogo`;
+const API_BASE_URL = `${window.location.origin}/api/catalogo`;
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,

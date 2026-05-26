@@ -28,7 +28,9 @@
   padding: 8px 12px;
   border-radius: 8px;
   transition: all 0.3s ease;
-  font-weight: 600;\n  letter-spacing: 0.3px;\n}
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
 
 .btn-back:hover {
   background-color: rgba(37, 99, 235, 0.1);
@@ -41,12 +43,15 @@
   min-width: 200px;
   color: #F9FAFB;
   font-size: 32px;
-  font-weight: 700;\n  letter-spacing: -0.3px;\n}
+  font-weight: 700;
+  letter-spacing: -0.3px;
+
+}
 
 .league-overview-card {
   background: #1F2937;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 32px;
   margin-bottom: 32px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
@@ -57,7 +62,10 @@
   margin-bottom: 24px;
   color: #F9FAFB;
   font-size: 20px;
-  font-weight: 700;\n  letter-spacing: -0.3px;\n}
+  font-weight: 700;
+  letter-spacing: -0.3px;
+
+}
 
 .info-grid {
   display: flex;
@@ -82,14 +90,18 @@
   color: #9CA3AF;
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;\n}
+  letter-spacing: 0.5px;
+
+}
 
 .info-value {
   margin: 0;
   color: #F9FAFB;
   font-size: 16px;
   word-break: break-word;
-  font-weight: 500;\n}
+  font-weight: 500;
+
+}
 
 .info-block p.info-value {
   margin: 0;
@@ -98,14 +110,14 @@
 .tabs-container {
   background: #1F2937;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
 .tabs-header {
   display: flex;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background-color: transparent;
 }
 
@@ -155,6 +167,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -170,7 +183,7 @@
 
 .stat-card {
   background: #111827;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   padding: 24px;
   text-align: center;
@@ -200,7 +213,7 @@
 
 .league-info-detailed {
   background: #111827;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   padding: 24px;
 }
@@ -228,7 +241,7 @@
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .league-info-detailed li:last-child {
@@ -341,19 +354,18 @@
   .league-details-container {
     padding: 0;
   }
-  }
+}
 
-  .league-overview-card,
-  .tabs-container {
-    padding: 15px;
-  }
+.league-overview-card,
+.tabs-container {
+  padding: 15px;
+}
 
-  .overview-stats {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
+.overview-stats {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
 
-  .stat-number {
-    font-size: 24px;
-  }
+.stat-number {
+  font-size: 24px;
 }

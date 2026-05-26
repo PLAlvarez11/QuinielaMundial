@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,12 +26,7 @@ SECRET_KEY = 'django-insecure-qp_9j8yho30aj&w%8$5t2_)_a(#t!54djjys(4n2u0tkrb47oy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "0.0.0.0",
-    "127.0.0.1",
-    "laconically-coexistent-derick.ngrok-free.dev",
-]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -93,17 +89,30 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #     }
 # }
 
+#  default without docker, for local development with postgres
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'quiniela_db',
+#         'USER': 'quiniela_user',
+#         'PASSWORD': 'superpassword',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'quiniela_db',
-        'USER': 'quiniela_user',
-        'PASSWORD': 'superpassword',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -172,3 +181,5 @@ CORS_ALLOWED_ORIGINS = [
 
 # Para permitir TODOS los orígenes (solo desarrollo):
 CORS_ALLOW_ALL_ORIGINS = True
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'

@@ -4,7 +4,7 @@
   padding: 40px;
   background: #1F2937;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
@@ -39,24 +39,44 @@
 .form-group input,
 .form-group textarea,
 .form-group select {
-  padding: 12px 14px;\n  border: 1px solid rgba(255,255,255,0.08);\n  border-radius: 8px;\n  font-size: 14px;\n  font-family: inherit;\n  background-color: #111827;\n  color: #F9FAFB;\n  transition: all 0.3s ease;\n}
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: #111827;
+  color: #F9FAFB;
+  transition: all 0.3s ease;
+}
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #6B7280;\n}
+  color: #6B7280;
+}
 
 .form-group input:hover,
 .form-group textarea:hover,
 .form-group select:hover {
-  border-color: rgba(255,255,255,0.16);\n  background-color: rgba(255,255,255,0.02);\n}
+  border-color: rgba(255, 255, 255, 0.16);
+  background-color: rgba(255, 255, 255, 0.02);
+
+}
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  outline: none;\n  border-color: #2563EB;\n  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);\n  background-color: #111827;\n}
+  outline: none;
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  background-color: #111827;
+
+}
 
 .form-group textarea {
-  resize: vertical;\n  min-height: 120px;\n}
+  resize: vertical;
+  min-height: 120px;
+
+}
 
 .form-row {
   display: grid;
@@ -107,7 +127,10 @@
   border: 1px solid rgba(239, 68, 68, 0.3);
   padding: 14px 16px;
   border-radius: 8px;
-  margin-bottom: 24px;\n  font-weight: 500;\n}
+  margin-bottom: 24px;
+  font-weight: 500;
+
+}
 
 @media (max-width: 600px) {
   .league-form-container {

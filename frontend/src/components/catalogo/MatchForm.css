@@ -39,7 +39,8 @@
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.match-form .form-control::placeholder {\n  color: #6B7280;
+.match-form .form-control::placeholder {
+    color: #6B7280;
 }
 
 .match-form .form-control:focus {

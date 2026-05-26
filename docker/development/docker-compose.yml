@@ -1,0 +1,63 @@
+services:
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: quiniela
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - quiniela_network
+
+  backend:
+    build:
+      context: ../../backend
+      dockerfile: ../docker/development/backend/backend.Dockerfile
+    environment:
+      - DEBUG=1
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=quiniela
+      - DB_USER=postgres
+      - DB_PASSWORD=1234
+    volumes:
+      - ../../backend:/app
+    ports:
+      - "8003:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - quiniela_network
+
+  frontend:
+    build:
+      context: ../../frontend
+      dockerfile: ../docker/development/frontend/frontend.Dockerfile
+    volumes:
+      - ../../frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://localhost:8003/
+    networks:
+      - quiniela_network
+
+volumes:
+  postgres_dev_data:
+
+networks:
+  quiniela_network:
+    driver: bridge
