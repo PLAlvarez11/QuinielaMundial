@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "0.0.0.0",
     "127.0.0.1",
+    "laconically-coexistent-derick.ngrok-free.dev",
 ]
 
 
@@ -166,7 +167,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:3000',
     'http://127.0.0.1:5173',
+    'https://laconically-coexistent-derick.ngrok-free.dev',
 ]
 
 # Para permitir TODOS los orígenes (solo desarrollo):
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
