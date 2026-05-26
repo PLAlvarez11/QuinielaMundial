@@ -37,7 +37,7 @@ export default function App() {
             <Route path="/m5-worldcup/*" element={<ProtectedRoute element={<M5WorldCupAdmin />} />} />
             <Route path="/catalogo/*" element={<ProtectedRoute element={<M5WorldCupAdmin />} />} />
             <Route path="/prizes/*" element={<ProtectedRoute element={<M6PrizeDistribution />} />} />
-            <Route path="/m7-admin" element={<ProtectedRoute element={<M7AdminPanel />} />} />
+            {/* <Route path="/m7-admin" element={<ProtectedRoute element={<M7AdminPanel />} />} /> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

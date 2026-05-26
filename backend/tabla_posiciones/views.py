@@ -46,7 +46,7 @@ class LeagueTableAPIView(APIView):
             else:
                 return Response({'standings': []})
 
-        standings = Standing.objects.filter(round_number=round_number).order_by('position')
+        standings = Standing.objects.filter(round_number=round_number).select_related('user').order_by('position')
         data = []
 
         for standing in standings:

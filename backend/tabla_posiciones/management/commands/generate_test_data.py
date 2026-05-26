@@ -3,7 +3,7 @@ M4 — Management Command: Generate Test Data
 Create sample matches, predictions, and scores for testing
 """
 from django.core.management.base import BaseCommand, CommandError
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.utils import timezone
 from datetime import timedelta
 import random
@@ -12,6 +12,8 @@ from catalogo.models import Match, Country, TournamentStage, Stadium, Venue
 from leagues_app.models import League, LeagueMember
 from prediction_engine.models import Prediction
 from tabla_posiciones.services import StandingsService
+
+User = get_user_model()
 
 
 class Command(BaseCommand):

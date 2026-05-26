@@ -463,14 +463,13 @@ class StandingsService:
         
         stats = standings.aggregate(
             total_members=Count('league_member_id'),
-            avg_points=Round(Avg('total_points')),
-            median_points=Percentile('total_points', 0.5),
+            avg_points=Avg('total_points'),
             max_points=Max('total_points'),
             min_points=Min('total_points'),
             std_dev=StdDev('total_points'),
             top_scorer_points=Max('total_points'),
             total_predictions_scored=Sum('scored_predictions'),
-            avg_accuracy=Round(Avg('exact_score_percentage'), 2),
+            avg_accuracy=Avg('exact_score_percentage'),
         ) if standings.exists() else {}
         
         result = {
@@ -483,5 +482,4 @@ class StandingsService:
 
 
 # Import aggregates
-from django.db.models import Avg, Max, Min, StdDev, Round, F
-from django.db.models.functions import Percentile
+from django.db.models import Avg, Max, Min, StdDev, F

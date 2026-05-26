@@ -35,10 +35,13 @@ export default function Navbar() {
       { path: '/m4-scoreboard', label: 'Marcador' },
       { path: '/m5-worldcup', label: 'Mundial' },
       { path: '/prizes', label: 'Premios' },
-      { path: '/m7-admin', label: 'Admin' },
     ] : []),
+    ...(user?.is_admin ? [
+      { path: '/m7-admin', label: 'Admin', inNewTab: true },
+    ] : [])
   ];
 
+  console.log('Navbar - Rendered', { isAuthenticated, user, menuItems });
   return (
     <nav className="navbar">
       <div className="navbar-wrapper">
@@ -68,6 +71,8 @@ export default function Navbar() {
                 to={item.path}
                 className="navbar-link"
                 onClick={closeMenu}
+                target={item.inNewTab ? '_blank' : '_self'}
+                rel={item.inNewTab ? 'noopener noreferrer' : undefined}
               >
                 {item.label}
               </Link>
@@ -93,7 +98,7 @@ export default function Navbar() {
                     <p className="user-email">{user?.email}</p>
                     <p className="user-name">{user?.name}</p>
                   </div>
-                  <button 
+                  <button
                     onClick={handleLogout}
                     className="dropdown-item logout"
                   >

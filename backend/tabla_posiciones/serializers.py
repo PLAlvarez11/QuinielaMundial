@@ -4,10 +4,12 @@ Optimizados para minimal queryset overhead y clarity
 """
 from rest_framework import serializers
 from django.core.cache import cache
+from django.contrib.auth import get_user_model
 
 from .models import LeagueStandings
 from leagues_app.models import LeagueMember
-from django.contrib.auth.models import User
+
+User = get_user_model()
 
 
 class MemberDetailSerializer(serializers.Serializer):

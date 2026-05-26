@@ -129,6 +129,9 @@ class Standing(models.Model):
         verbose_name_plural = "Tabla de Posiciones"
         unique_together = ['user', 'round_number']
         ordering = ['round_number', 'position']
+        indexes = [
+            models.Index(fields=['round_number', 'position']),
+        ]
 
     @staticmethod
     def update_standings_for_round(round_number):
