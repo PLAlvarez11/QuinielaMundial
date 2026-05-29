@@ -186,7 +186,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # --- Frontend URL for email links ---
-FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:5173')
+FRONTEND_URL = os.getenv('FRONTEND_URL', 'https://worldbet.duckdns.org/')
 
 
 # --- Email Configuration ---
