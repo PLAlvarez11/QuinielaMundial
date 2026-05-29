@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axiosInstance from '../../../api/axiosConfig';
 
 /**
@@ -10,6 +10,8 @@ export function useMatches(leagueId) {
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const POLL_MS = 5000; // intervalo de polling para actualizaciones en tiempo real
+  const isFetchingRef = useRef(false);
 
   const fetchMatches = async () => {
     if (!leagueId) {
@@ -17,12 +19,16 @@ export function useMatches(leagueId) {
       return;
     }
 
+    // Evitar solapamiento de peticiones
+    if (isFetchingRef.current) return;
+    isFetchingRef.current = true;
+
     setLoading(true);
     setError(null);
 
     try {
       console.log('Fetching matches...');
-      const response = await axiosInstance.get('/api/tabla-posiciones/matches/');
+      const response = await axiosInstance.get('/tabla-posiciones/matches/');
       
       console.log('Matches response:', response.data);
       const data = response.data?.matches || [];
@@ -35,11 +41,31 @@ export function useMatches(leagueId) {
       setError(errorMsg);
     } finally {
       setLoading(false);
+      isFetchingRef.current = false;
     }
   };
-
   useEffect(() => {
-    fetchMatches();
+    let timeoutId = null;
+    let cancelled = false;
+
+    if (!leagueId) {
+      console.warn('useMatches: No leagueId provided');
+      return undefined;
+    }
+
+    const poll = async () => {
+      if (cancelled) return;
+      await fetchMatches();
+      if (cancelled) return;
+      timeoutId = setTimeout(poll, POLL_MS);
+    };
+
+    poll();
+
+    return () => {
+      cancelled = true;
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, [leagueId]);
 
   return {

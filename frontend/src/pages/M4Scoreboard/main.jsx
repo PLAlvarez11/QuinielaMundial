@@ -84,13 +84,9 @@ export default function M4ScoreboardMain() {
   }, []);
 
   // ── Auto-reload standings and matches when league changes ─────────────────
-  useEffect(() => {
-    if (selectedLeagueId) {
-      console.log('🔄 League changed, reloading data...');
-      reloadStandings();
-      reloadMatches();
-    }
-  }, [selectedLeagueId, reloadStandings, reloadMatches]);
+  // Nota: los hooks `useStandings` y `useMatches` manejan su propio polling
+  // y realizan la carga inicial cuando `selectedLeagueId` cambia, por lo
+  // tanto evitamos llamadas duplicadas desde aquí.
 
   console.log('🟡 Current render state:', { leaguesLoading, leagues: leagues.length, selectedLeagueId });
 
