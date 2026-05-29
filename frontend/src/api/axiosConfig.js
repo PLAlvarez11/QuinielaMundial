@@ -32,11 +32,20 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       // Token inválido o expirado
-      localStorage.removeItem('token');
-      window.location.href = '/login';
+      console.warn('Sesión expirada. Limpiando datos locales...');
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('user');
+      window.location.href = '/m1-auth/login';
+    } else if (error.response?.status === 403) {
+      // Acceso prohibido
+      console.warn('Acceso prohibido (403)');
+    } else if (error.response?.status >= 500) {
+      // Error del servidor
+      console.error('Error del servidor:', error.response?.status);
     }
     return Promise.reject(error);
   }
 );
 
 export default axiosInstance;
+

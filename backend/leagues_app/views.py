@@ -8,12 +8,14 @@ import uuid
 
 from .models import League, LeagueMember, Invitation
 from .serializers import LeagueSerializer, LeagueMemberSerializer, InvitationSerializer
+from .permissions import IsLeagueOwner, IsInvitationCreator, CanCreateInvitation
+from .utils import send_league_invitation_email
 
 
 class LeagueViewSet(viewsets.ModelViewSet):
     queryset = League.objects.all()
     serializer_class = LeagueSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsLeagueOwner]
 
     def perform_create(self, serializer):
         """Crea la liga y automáticamente agrega el owner como miembro"""
@@ -61,18 +63,38 @@ class LeagueMemberViewSet(viewsets.ModelViewSet):
 class InvitationViewSet(viewsets.ModelViewSet):
     queryset = Invitation.objects.all()
     serializer_class = InvitationSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsInvitationCreator, CanCreateInvitation]
 
     def perform_create(self, serializer):
         """Genera token, establece expiracion e invited_by automáticamente"""
         token = str(uuid.uuid4())
         expires_at = timezone.now() + timedelta(days=7)
         
-        serializer.save(
+        # Validar que la liga exista y que el usuario sea el owner
+        league_id = self.request.data.get('league')
+        try:
+            league = League.objects.get(id=league_id)
+            if league.owner != self.request.user:
+                raise PermissionError("No eres el propietario de esta liga")
+        except League.DoesNotExist:
+            raise ValueError("La liga no existe")
+        
+        # Crear la invitación
+        invitation = serializer.save(
             token=token,
             expires_at=expires_at,
             invited_by=self.request.user
         )
+        
+        # Enviar email de invitación
+        recipient_email = self.request.data.get('email')
+        if recipient_email:
+            send_league_invitation_email(
+                recipient_email=recipient_email,
+                league_name=league.name,
+                invitation_token=token,
+                invited_by_name=self.request.user.name
+            )
 
     @action(detail=False, methods=['post'], permission_classes=[IsAuthenticated])
     def accept_invitation(self, request):

@@ -3,12 +3,16 @@ import LeaguesLayout from '../pages/M2LeagueManagement/LeaguesLayout';
 import LeagueList from '../pages/M2LeagueManagement/LeagueList';
 import LeagueForm from '../pages/M2LeagueManagement/LeagueForm';
 import LeagueDetails from '../pages/M2LeagueManagement/LeagueDetails';
+import AcceptInvitation from '../pages/M2LeagueManagement/AcceptInvitation';
 
 export default function LeaguesRoutes() {
   return (
     <Routes>
       {/* Redirect to list by default */}
       <Route path="/" element={<Navigate to="list" replace />} />
+
+      {/* Accept Invitation Route - Sin Layout */}
+      <Route path="accept-invitation/:token" element={<AcceptInvitation />} />
 
       {/* Leagues Routes with Layout */}
       <Route element={<LeaguesLayout />}>
