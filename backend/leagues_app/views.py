@@ -100,7 +100,8 @@ class InvitationViewSet(viewsets.ModelViewSet):
     def accept_invitation(self, request):
         """Acepta una invitación usando el token y agregar el usuario a la liga"""
         token = request.data.get('token')
-        team_name = request.data.get('team_name', f"{request.user.username}'s Team")
+        fallback_name = getattr(request.user, 'name', None) or request.user.email
+        team_name = request.data.get('team_name', f"{fallback_name}'s Team")
         
         if not token:
             return Response(
