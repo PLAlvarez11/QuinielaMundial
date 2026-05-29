@@ -1,0 +1,225 @@
+.match-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 980px;
+  margin: 0 auto;
+  color: #f9fafb;
+}
+
+.match-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  background: rgba(59, 130, 246, 0.08);
+  color: #dbeafe;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.match-detail__hero,
+.match-detail__summary,
+.match-detail__error,
+.match-detail__card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111827;
+  border-radius: 18px;
+}
+
+.match-detail__hero {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.match-detail__round,
+.match-detail__status,
+.match-detail__label {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.match-detail__round {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #93c5fd;
+  font-weight: 700;
+}
+
+.match-detail__title {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.05;
+}
+
+.match-detail__status {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.match-detail__status--finished {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.match-detail__status--live {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.match-detail__status--scheduled {
+  background: rgba(148, 163, 184, 0.12);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.match-detail__status--cancelled {
+  background: rgba(249, 115, 22, 0.12);
+  color: #fdba74;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+}
+
+.match-detail__scoreboard {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 24px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.92), rgba(15, 23, 42, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.match-detail__team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.match-detail__team-label,
+.match-detail__label {
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.match-detail__team-name {
+  font-size: 18px;
+}
+
+.match-detail__score {
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 900;
+  line-height: 1;
+  color: #60a5fa;
+}
+
+.match-detail__vs {
+  color: #93c5fd;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.match-detail__info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.match-detail__card {
+  padding: 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.match-detail__card strong,
+.match-detail__summary strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+.match-detail__summary {
+  padding: 20px 24px;
+}
+
+.match-detail__summary p {
+  margin: 8px 0 0;
+  color: #cbd5e1;
+}
+
+.match-detail__error {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.match-detail__retry,
+.match-detail__link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.22);
+  background: rgba(59, 130, 246, 0.1);
+  color: #dbeafe;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.match-detail__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .match-detail__hero,
+  .match-detail__summary,
+  .match-detail__error {
+    padding: 20px;
+  }
+
+  .match-detail__scoreboard {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .match-detail__team {
+    gap: 6px;
+  }
+
+  .match-detail__vs {
+    justify-self: center;
+  }
+
+  .match-detail__info {
+    grid-template-columns: 1fr;
+  }
+
+  .match-detail__footer {
+    justify-content: stretch;
+  }
+
+  .match-detail__link {
+    width: 100%;
+  }
+}

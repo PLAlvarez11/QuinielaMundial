@@ -1,4 +1,5 @@
-import { FiRefreshCw, FiCalendar, FiClock } from 'react-icons/fi';
+import { FiRefreshCw, FiCalendar } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import Loader from '../../components/Loader';
 import './Matches.css';
 
@@ -11,6 +12,8 @@ import './Matches.css';
  * @param {Function} reload - función para recargar
  */
 const Matches = ({ leagueId, matches, loading, error, reload }) => {
+  const navigate = useNavigate();
+
   if (loading) {
     return <Loader message="Cargando partidos…" />;
   }
@@ -36,8 +39,20 @@ const Matches = ({ leagueId, matches, loading, error, reload }) => {
     );
   }
 
+  // Normalizar shape de match para compatibilidad con `catalogo`
+  const normalizedMatches = matches.map((m) => ({
+    ...m,
+    home_team_display: m.home_team_name || (m.home_team?.name) || m.home_team,
+    away_team_display: m.away_team_name || (m.away_team?.name) || m.away_team,
+    has_result: m.home_score !== null && m.home_score !== undefined && m.away_score !== null && m.away_score !== undefined,
+    is_finished:
+      typeof m.is_finished === 'boolean'
+        ? m.is_finished
+        : (m.status === 'finished' || (m.home_score !== null && m.home_score !== undefined && m.away_score !== null && m.away_score !== undefined)),
+  }));
+
   // Agrupar por jornada
-  const matchesByRound = matches.reduce((acc, match) => {
+  const matchesByRound = normalizedMatches.reduce((acc, match) => {
     const round = match.round_number || 1;
     if (!acc[round]) acc[round] = [];
     acc[round].push(match);
@@ -63,7 +78,7 @@ const Matches = ({ leagueId, matches, loading, error, reload }) => {
   };
 
   const getMatchStatus = (match) => {
-    if (match.is_finished) return 'finished';
+    if (match.is_finished || match.has_result) return 'finished';
     const matchDate = new Date(match.match_date);
     const now = new Date();
     if (matchDate < now) return 'in_progress';
@@ -108,21 +123,21 @@ const Matches = ({ leagueId, matches, loading, error, reload }) => {
           <div key={roundKey} className="round-section">
             <h3 className="round-title">Jornada {roundKey}</h3>
             <div className="matches-list">
-              {matchesByRound[roundKey].map((match) => {
+                {matchesByRound[roundKey].map((match) => {
                 const status = getMatchStatus(match);
                 return (
                   <div key={match.id} className={`match-card match-card--${status}`}>
                     {/* ── Equipo local ── */}
                     <div className="match-team match-team--home">
-                      <div className="team-name">{match.home_team}</div>
-                      {match.is_finished && (
+                      <div className="team-name">{match.home_team_display}</div>
+                      {(match.is_finished || match.has_result) && (
                         <div className="team-score">{match.home_score}</div>
                       )}
                     </div>
 
                     {/* ── Centro (información del partido) ── */}
                     <div className="match-center">
-                      {match.is_finished ? (
+                      {match.is_finished || match.has_result ? (
                         <div className="match-result">
                           <span className="result-score">
                             {match.home_score} - {match.away_score}
@@ -138,14 +153,23 @@ const Matches = ({ leagueId, matches, loading, error, reload }) => {
                           {getStatusBadge(status)}
                         </div>
                       )}
+
+                      <button
+                        type="button"
+                        className="match-detail-btn"
+                        onClick={() => navigate(`/m4-scoreboard/matches/${match.id}`)}
+                        aria-label={`Ver detalle del partido ${match.home_team_display} contra ${match.away_team_display}`}
+                      >
+                        Ver detalle
+                      </button>
                     </div>
 
                     {/* ── Equipo visitante ── */}
                     <div className="match-team match-team--away">
-                      {match.is_finished && (
+                      {(match.is_finished || match.has_result) && (
                         <div className="team-score">{match.away_score}</div>
                       )}
-                      <div className="team-name">{match.away_team}</div>
+                      <div className="team-name">{match.away_team_display}</div>
                     </div>
                   </div>
                 );
@@ -159,18 +183,18 @@ const Matches = ({ leagueId, matches, loading, error, reload }) => {
       <div className="matches__stats">
         <div className="stat-item">
           <span className="stat-label">Total de partidos:</span>
-          <span className="stat-value">{matches.length}</span>
+          <span className="stat-value">{normalizedMatches.length}</span>
         </div>
         <div className="stat-item">
           <span className="stat-label">Finalizados:</span>
           <span className="stat-value">
-            {matches.filter(m => m.is_finished).length}
+            {normalizedMatches.filter(m => m.is_finished || m.has_result).length}
           </span>
         </div>
         <div className="stat-item">
           <span className="stat-label">Pendientes:</span>
           <span className="stat-value">
-            {matches.filter(m => !m.is_finished).length}
+            {normalizedMatches.filter(m => !(m.is_finished || m.has_result)).length}
           </span>
         </div>
       </div>

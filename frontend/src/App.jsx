@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import M1AuthUsers from './pages/M1AuthUsers';
 import M3PredictionEngine from './pages/M3PredictionEngine';
 import M4Scoreboard from './pages/M4Scoreboard';
+import MatchDetail from './pages/M4Scoreboard/MatchDetail';
 import M5WorldCupAdmin from './pages/M5WorldCupAdmin';
 import M6PrizeDistribution from './pages/M6PrizeDistribution';
 import M7AdminPanel from './pages/M7AdminPanel';
@@ -34,6 +35,7 @@ export default function App() {
             <Route path="/m2-league/*" element={<ProtectedRoute element={<LeaguesRoutes />} />} />
             <Route path="/m3-prediction" element={<ProtectedRoute element={<M3PredictionEngine />} />} />
             <Route path="/m4-scoreboard" element={<ProtectedRoute element={<M4Scoreboard />} />} />
+            <Route path="/m4-scoreboard/matches/:matchId" element={<ProtectedRoute element={<MatchDetail />} />} />
             <Route path="/m5-worldcup/*" element={<ProtectedRoute element={<M5WorldCupAdmin />} />} />
             <Route path="/catalogo/*" element={<ProtectedRoute element={<M5WorldCupAdmin />} />} />
             <Route path="/prizes/*" element={<ProtectedRoute element={<M6PrizeDistribution />} />} />

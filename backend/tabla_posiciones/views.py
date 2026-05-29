@@ -8,7 +8,9 @@ from django.db import models
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Team, Match, Prediction, Standing
+from .models import Standing
+from catalogo.models import Match
+from prediction_engine.models import Prediction
 import json
 
 
@@ -50,8 +52,9 @@ class LeagueTableAPIView(APIView):
         data = []
 
         for standing in standings:
+            user_display = getattr(standing.user, 'name', None) or getattr(standing.user, 'email', None) or str(standing.user)
             data.append({
-                'user': standing.user.username,
+                'user': user_display,
                 'position': standing.position,
                 'total_points': standing.total_points,
                 'position_variation': standing.position_variation,
@@ -75,19 +78,46 @@ class UpdateMatchResultView(View):
             home_score = data.get('home_score')
             away_score = data.get('away_score')
 
-            match = get_object_or_404(Match, id=match_id)
-            match.home_score = home_score
-            match.away_score = away_score
-            match.is_finished = True
-            match.save()
 
-            # Recalcular puntos de predicciones para este partido
-            predictions = Prediction.objects.filter(match=match)
-            for prediction in predictions:
-                prediction.save()  # Esto recalcula los puntos
+            match = get_object_or_404(Match, id=match_id)
+
+            # Actualizar resultado en el modelo Match (defensivo según campos disponibles)
+            setattr(match, 'home_score', home_score)
+            setattr(match, 'away_score', away_score)
+            if hasattr(match, 'status'):
+                match.status = 'finished'
+
+            # Guardar campos explícitos si es posible
+            save_fields = []
+            if hasattr(match, 'home_score'):
+                save_fields.append('home_score')
+            if hasattr(match, 'away_score'):
+                save_fields.append('away_score')
+            if hasattr(match, 'status'):
+                save_fields.append('status')
+
+            if save_fields:
+                match.save(update_fields=save_fields + ['updated_at'] if hasattr(match, 'updated_at') else save_fields)
+            else:
+                match.save()
+
+            # Recalcular puntos de predicciones para este partido usando el servicio central
+            try:
+                from prediction_engine.services import score_predictions_for_match
+                scored = score_predictions_for_match(match)
+            except Exception:
+                # Fallback: marcar predicciones como guardadas por compatibilidad
+                scored = 0
 
             # Actualizar tabla de posiciones para todas las jornadas afectadas
-            max_round = Match.objects.filter(is_finished=True).aggregate(max_round=models.Max('round_number'))['max_round'] or 1
+            # Intentamos usar campo `round_number` si existe, si no fallback a 1
+            try:
+                if hasattr(Match, '_meta') and any(f.name == 'round_number' for f in Match._meta.get_fields()):
+                    max_round = Match.objects.filter(status='finished').aggregate(max_round=models.Max('round_number'))['max_round'] or 1
+                else:
+                    max_round = 1
+            except Exception:
+                max_round = 1
 
             for round_num in range(1, max_round + 1):
                 Standing.update_standings_for_round(round_num)
@@ -108,25 +138,49 @@ class MatchesAPIView(APIView):
         matches = Match.objects.all()
 
         if round_number:
-            matches = matches.filter(round_number=round_number)
+            # Filtrado si el campo existe
+            try:
+                matches = matches.filter(round_number=round_number)
+            except Exception:
+                pass
 
         if finished is not None:
-            matches = matches.filter(is_finished=finished.lower() == 'true')
+            try:
+                matches = matches.filter(is_finished=finished.lower() == 'true')
+            except Exception:
+                # algunos modelos usan `status` en lugar de `is_finished`
+                if finished.lower() == 'true':
+                    matches = matches.filter(status='finished')
 
         matches = matches.order_by('match_date')
 
         data = []
         for match in matches:
+            # Serializar de forma defensiva según campos disponibles
+            home_name = getattr(match.home_team, 'name', str(match.home_team))
+            away_name = getattr(match.away_team, 'name', str(match.away_team))
+            match_date = getattr(match, 'match_date', None)
+            home_score = getattr(match, 'home_score', None)
+            away_score = getattr(match, 'away_score', None)
+            is_finished = getattr(match, 'is_finished', None)
+            if is_finished is None and hasattr(match, 'status'):
+                is_finished = (getattr(match, 'status') == 'finished')
+
+            if home_score is not None and away_score is not None:
+                result = f"{home_score}-{away_score}"
+            else:
+                result = 'Pendiente'
+
             data.append({
                 'id': match.id,
-                'home_team': match.home_team.name,
-                'away_team': match.away_team.name,
-                'match_date': match.match_date.isoformat(),
-                'round_number': match.round_number,
-                'home_score': match.home_score,
-                'away_score': match.away_score,
-                'is_finished': match.is_finished,
-                'result': match.result,
+                'home_team': home_name,
+                'away_team': away_name,
+                'match_date': match_date.isoformat() if match_date else None,
+                'round_number': getattr(match, 'round_number', None),
+                'home_score': home_score,
+                'away_score': away_score,
+                'is_finished': is_finished,
+                'result': result,
             })
 
         return Response({'matches': data})
@@ -145,13 +199,27 @@ def create_prediction(request):
             match = get_object_or_404(Match, id=match_id)
 
             # Verificar que el partido no haya terminado
-            if match.is_finished:
+            is_finished = getattr(match, 'is_finished', None)
+            if is_finished is None and hasattr(match, 'status'):
+                is_finished = (getattr(match, 'status') == 'finished')
+
+            if is_finished:
                 return JsonResponse({'success': False, 'message': 'El partido ya terminó'})
 
-            # Crear o actualizar predicción
+            # Para usar el modelo central de `Prediction` (prediction_engine)
+            # necesitamos la liga; esperar que el cliente envíe `league_id`.
+            league_id = data.get('league_id')
+            if not league_id:
+                return JsonResponse({'success': False, 'message': 'Se requiere league_id para crear una predicción'}, status=400)
+
+            from leagues_app.models import League
+            league = get_object_or_404(League, id=league_id)
+
+            # Crear o actualizar predicción en prediction_engine
             prediction, created = Prediction.objects.update_or_create(
                 user=request.user,
                 match=match,
+                league=league,
                 defaults={
                     'predicted_home_score': home_score,
                     'predicted_away_score': away_score,

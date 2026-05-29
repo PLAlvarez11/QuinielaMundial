@@ -14,10 +14,7 @@ export function useMatches(leagueId) {
   const isFetchingRef = useRef(false);
 
   const fetchMatches = async () => {
-    if (!leagueId) {
-      console.warn('useMatches: No leagueId provided');
-      return;
-    }
+    // leagueId is optional for matches (tournament fixtures are global)
 
     // Evitar solapamiento de peticiones
     if (isFetchingRef.current) return;
@@ -27,11 +24,11 @@ export function useMatches(leagueId) {
     setError(null);
 
     try {
-      console.log('Fetching matches...');
-      const response = await axiosInstance.get('/tabla-posiciones/matches/');
-      
+      console.log('Fetching matches from catalogo...');
+      const response = await axiosInstance.get('/catalogo/matches/');
+
       console.log('Matches response:', response.data);
-      const data = response.data?.matches || [];
+      const data = response.data || [];
       // Ordenar por fecha de partido
       const sorted = data.sort((a, b) => new Date(a.match_date) - new Date(b.match_date));
       setMatches(sorted);

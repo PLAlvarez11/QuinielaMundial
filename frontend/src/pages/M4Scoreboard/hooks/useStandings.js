@@ -27,11 +27,12 @@ export function useStandings(leagueId) {
     setError(null);
 
     try {
-      console.log('Fetching standings...');
-      const response = await axiosInstance.get('/tabla-posiciones/standings/');
-      
+      console.log('Fetching standings from prediction_engine scoreboard...');
+      const response = await axiosInstance.get(`/predictions/scoreboard/?league=${leagueId}`);
+
       console.log('Standings response:', response.data);
-      const data = response.data?.standings || [];
+      // prediction_engine returns an array of rows
+      const data = Array.isArray(response.data) ? response.data : response.data || [];
       setStandings(data);
     } catch (err) {
       console.error('Error fetching standings:', err);
