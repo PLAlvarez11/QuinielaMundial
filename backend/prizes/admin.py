@@ -1,11 +1,13 @@
 from django.contrib import admin
+
+from users.admin_mixins import AuditAdminMixin
+
 from .models import PrizeDistribution
 
 
 @admin.register(PrizeDistribution)
-class PrizeDistributionAdmin(admin.ModelAdmin):
+class PrizeDistributionAdmin(AuditAdminMixin, admin.ModelAdmin):
     list_display = (
-        'id',
         'league',
         'member',
         'position',
@@ -16,7 +18,9 @@ class PrizeDistributionAdmin(admin.ModelAdmin):
 
     search_fields = (
         'league__name',
+        'league__owner__name',
         'member__team_name',
+        'member__user__email',
         'position',
         'type'
     )
@@ -24,5 +28,9 @@ class PrizeDistributionAdmin(admin.ModelAdmin):
     list_filter = (
         'position',
         'type',
-        'league'
+        'league',
+        'created_at'
     )
+    autocomplete_fields = ('league', 'member')
+    date_hierarchy = 'created_at'
+    list_select_related = ('league', 'member')

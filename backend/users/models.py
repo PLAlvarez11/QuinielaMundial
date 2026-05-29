@@ -109,6 +109,50 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
 
 
+class AuditLog(models.Model):
+    class Action(models.TextChoices):
+        CREATE = 'create', 'Creación'
+        UPDATE = 'update', 'Actualización'
+        DELETE = 'delete', 'Eliminación'
+        LOGIN = 'login', 'Inicio de sesión'
+        LOGOUT = 'logout', 'Cierre de sesión'
+        RESTORE = 'restore', 'Restauración'
+        SOFT_DELETE = 'soft_delete', 'Eliminación lógica'
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    actor = models.ForeignKey(
+        CustomUser,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='audit_logs',
+    )
+    action = models.CharField(max_length=30, choices=Action.choices)
+    model_label = models.CharField(max_length=120, db_index=True)
+    object_id = models.CharField(max_length=64, blank=True, null=True, db_index=True)
+    object_repr = models.CharField(max_length=255)
+    changes = models.JSONField(default=dict, blank=True)
+    path = models.CharField(max_length=255, blank=True)
+    method = models.CharField(max_length=10, blank=True)
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+    user_agent = models.TextField(blank=True)
+    status_code = models.PositiveSmallIntegerField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'audit_logs'
+        verbose_name = 'Bitácora de auditoría'
+        verbose_name_plural = 'Bitácora de auditoría'
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['action', 'created_at']),
+            models.Index(fields=['model_label', 'created_at']),
+            models.Index(fields=['actor', 'created_at']),
+        ]
+
+    def __str__(self):
+        return f'{self.get_action_display()} · {self.model_label} · {self.object_repr}'
+
 
 class UserSession(models.Model):
     """

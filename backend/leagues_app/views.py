@@ -10,6 +10,7 @@ from .models import League, LeagueMember, Invitation
 from .serializers import LeagueSerializer, LeagueMemberSerializer, InvitationSerializer
 from .permissions import IsLeagueOwner, IsInvitationCreator, CanCreateInvitation
 from .utils import send_league_invitation_email
+from users.audit import log_event
 
 
 class LeagueViewSet(viewsets.ModelViewSet):
@@ -20,6 +21,7 @@ class LeagueViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         """Crea la liga y automáticamente agrega el owner como miembro"""
         league = serializer.save(owner=self.request.user)
+        log_event(action='create', instance=league, actor=self.request.user, request=self.request, changes={'source': 'LeagueViewSet'})
         # Agregar el owner como miembro de la liga
         LeagueMember.objects.create(
             league=league,
@@ -42,6 +44,7 @@ class LeagueViewSet(viewsets.ModelViewSet):
                     status=status.HTTP_400_BAD_REQUEST
                 )
             
+            log_event(action='delete', instance=member, actor=request.user, request=request, changes={'source': 'leave_league'})
             member.delete()
             return Response(
                 {"message": "Has abandonado la liga exitosamente"},
@@ -85,6 +88,7 @@ class InvitationViewSet(viewsets.ModelViewSet):
             expires_at=expires_at,
             invited_by=self.request.user
         )
+        log_event(action='create', instance=invitation, actor=self.request.user, request=self.request, changes={'source': 'InvitationViewSet'})
         
         # Enviar email de invitación
         recipient_email = self.request.data.get('email')
@@ -159,6 +163,7 @@ class InvitationViewSet(viewsets.ModelViewSet):
             # Marcar invitación como aceptada
             invitation.status = 'accepted'
             invitation.save()
+            log_event(action='update', instance=invitation, actor=request.user, request=request, changes={'status': {'before': 'pending', 'after': 'accepted'}})
             
             return Response(
                 {
@@ -205,6 +210,7 @@ class InvitationViewSet(viewsets.ModelViewSet):
             # Marcar invitación como rechazada
             invitation.status = 'rejected'
             invitation.save()
+            log_event(action='update', instance=invitation, actor=request.user, request=request, changes={'status': {'before': 'pending', 'after': 'rejected'}})
             
             return Response(
                 {"message": "Invitación rechazada"},
