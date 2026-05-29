@@ -4,6 +4,7 @@ from django.urls import path
 from django.utils import timezone
 from django.http import HttpResponse
 from django.db.models import Count
+from django.utils.safestring import mark_safe
 
 from .audit import log_event
 from .admin_mixins import AuditAdminMixin
@@ -45,12 +46,17 @@ class CustomUserAdmin(AuditAdminMixin, admin.ModelAdmin):
 		('Fechas', {'fields': ('last_login', 'created_at', 'updated_at')}),
 	)
 
+
 	@admin.display(description='Estado')
 	def account_state(self, obj):
-		if obj.deleted_at:
-			return format_html('<span style="color:#b42318;font-weight:600;">Eliminado</span>')
-		return format_html('<span style="color:#067647;font-weight:600;">Activo</span>')
+		color = '#b42318' if obj.deleted_at else '#067647'
+		text = 'Eliminado' if obj.deleted_at else 'Activo'
 
+		return format_html(
+			'<span style="color:{};font-weight:600;">{}</span>',
+			color,
+			text
+		)
 	@admin.action(description='Marcar como eliminados')
 	def soft_delete_selected(self, request, queryset):
 		for user in queryset:
