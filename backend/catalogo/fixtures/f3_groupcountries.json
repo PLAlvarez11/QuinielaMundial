@@ -1,0 +1,386 @@
+[
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 1,
+    "fields": {
+      "group": 1,
+      "country": 2
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 2,
+    "fields": {
+      "group": 1,
+      "country": 31
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 3,
+    "fields": {
+      "group": 1,
+      "country": 19
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 4,
+    "fields": {
+      "group": 1,
+      "country": 32
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 5,
+    "fields": {
+      "group": 2,
+      "country": 3
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 6,
+    "fields": {
+      "group": 2,
+      "country": 33
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 7,
+    "fields": {
+      "group": 2,
+      "country": 34
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 8,
+    "fields": {
+      "group": 2,
+      "country": 35
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 9,
+    "fields": {
+      "group": 3,
+      "country": 5
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 10,
+    "fields": {
+      "group": 3,
+      "country": 20
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 11,
+    "fields": {
+      "group": 3,
+      "country": 36
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 12,
+    "fields": {
+      "group": 3,
+      "country": 37
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 13,
+    "fields": {
+      "group": 4,
+      "country": 1
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 14,
+    "fields": {
+      "group": 4,
+      "country": 39
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 15,
+    "fields": {
+      "group": 4,
+      "country": 24
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 16,
+    "fields": {
+      "group": 4,
+      "country": 38
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 17,
+    "fields": {
+      "group": 5,
+      "country": 6
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 18,
+    "fields": {
+      "group": 5,
+      "country": 40
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 19,
+    "fields": {
+      "group": 5,
+      "country": 41
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 20,
+    "fields": {
+      "group": 5,
+      "country": 29
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 21,
+    "fields": {
+      "group": 6,
+      "country": 12
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 22,
+    "fields": {
+      "group": 6,
+      "country": 18
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 23,
+    "fields": {
+      "group": 6,
+      "country": 42
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 24,
+    "fields": {
+      "group": 6,
+      "country": 43
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 25,
+    "fields": {
+      "group": 7,
+      "country": 13
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 26,
+    "fields": {
+      "group": 7,
+      "country": 23
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 27,
+    "fields": {
+      "group": 7,
+      "country": 26
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 28,
+    "fields": {
+      "group": 7,
+      "country": 44
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 29,
+    "fields": {
+      "group": 8,
+      "country": 7
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 30,
+    "fields": {
+      "group": 8,
+      "country": 45
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 31,
+    "fields": {
+      "group": 8,
+      "country": 25
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 32,
+    "fields": {
+      "group": 8,
+      "country": 15
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 33,
+    "fields": {
+      "group": 9,
+      "country": 8
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 34,
+    "fields": {
+      "group": 9,
+      "country": 21
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 35,
+    "fields": {
+      "group": 9,
+      "country": 47
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 36,
+    "fields": {
+      "group": 9,
+      "country": 46
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 37,
+    "fields": {
+      "group": 10,
+      "country": 4
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 38,
+    "fields": {
+      "group": 10,
+      "country": 48
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 39,
+    "fields": {
+      "group": 10,
+      "country": 49
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 40,
+    "fields": {
+      "group": 10,
+      "country": 50
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 41,
+    "fields": {
+      "group": 11,
+      "country": 11
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 42,
+    "fields": {
+      "group": 11,
+      "country": 51
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 43,
+    "fields": {
+      "group": 11,
+      "country": 52
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 44,
+    "fields": {
+      "group": 11,
+      "country": 16
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 45,
+    "fields": {
+      "group": 12,
+      "country": 10
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 46,
+    "fields": {
+      "group": 12,
+      "country": 14
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 47,
+    "fields": {
+      "group": 12,
+      "country": 53
+    }
+  },
+  {
+    "model": "catalogo.groupcountry",
+    "pk": 48,
+    "fields": {
+      "group": 12,
+      "country": 28
+    }
+  }
+]

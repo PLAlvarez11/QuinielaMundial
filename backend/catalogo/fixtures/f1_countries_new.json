@@ -1,0 +1,209 @@
+[
+  {
+    "model": "catalogo.country",
+    "pk": 31,
+    "fields": {
+      "name": "Sudáfrica",
+      "code": "RSA",
+      "flag_url": "https://flagcdn.com/za.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 32,
+    "fields": {
+      "name": "Chequia",
+      "code": "CZE",
+      "flag_url": "https://flagcdn.com/cz.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 33,
+    "fields": {
+      "name": "Bosnia y Herzegovina",
+      "code": "BIH",
+      "flag_url": "https://flagcdn.com/ba.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 34,
+    "fields": {
+      "name": "Qatar",
+      "code": "QAT",
+      "flag_url": "https://flagcdn.com/qa.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 35,
+    "fields": {
+      "name": "Suiza",
+      "code": "SUI",
+      "flag_url": "https://flagcdn.com/ch.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 36,
+    "fields": {
+      "name": "Haití",
+      "code": "HAI",
+      "flag_url": "https://flagcdn.com/ht.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 37,
+    "fields": {
+      "name": "Escocia",
+      "code": "SCO",
+      "flag_url": "https://flagcdn.com/gb-sct.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 38,
+    "fields": {
+      "name": "Turquía",
+      "code": "TUR",
+      "flag_url": "https://flagcdn.com/tr.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 39,
+    "fields": {
+      "name": "Paraguay",
+      "code": "PAR",
+      "flag_url": "https://flagcdn.com/py.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 40,
+    "fields": {
+      "name": "Curazao",
+      "code": "CUW",
+      "flag_url": "https://flagcdn.com/cw.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 41,
+    "fields": {
+      "name": "Costa de Marfil",
+      "code": "CIV",
+      "flag_url": "https://flagcdn.com/ci.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 42,
+    "fields": {
+      "name": "Suecia",
+      "code": "SWE",
+      "flag_url": "https://flagcdn.com/se.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 43,
+    "fields": {
+      "name": "Túnez",
+      "code": "TUN",
+      "flag_url": "https://flagcdn.com/tn.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 44,
+    "fields": {
+      "name": "Nueva Zelanda",
+      "code": "NZL",
+      "flag_url": "https://flagcdn.com/nz.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 45,
+    "fields": {
+      "name": "Cabo Verde",
+      "code": "CPV",
+      "flag_url": "https://flagcdn.com/cv.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 46,
+    "fields": {
+      "name": "Noruega",
+      "code": "NOR",
+      "flag_url": "https://flagcdn.com/no.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 47,
+    "fields": {
+      "name": "Iraq",
+      "code": "IRQ",
+      "flag_url": "https://flagcdn.com/iq.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 48,
+    "fields": {
+      "name": "Argelia",
+      "code": "ALG",
+      "flag_url": "https://flagcdn.com/dz.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 49,
+    "fields": {
+      "name": "Austria",
+      "code": "AUT",
+      "flag_url": "https://flagcdn.com/at.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 50,
+    "fields": {
+      "name": "Jordania",
+      "code": "JOR",
+      "flag_url": "https://flagcdn.com/jo.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 51,
+    "fields": {
+      "name": "DR Congo",
+      "code": "COD",
+      "flag_url": "https://flagcdn.com/cd.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 52,
+    "fields": {
+      "name": "Uzbekistán",
+      "code": "UZB",
+      "flag_url": "https://flagcdn.com/uz.svg"
+    }
+  },
+  {
+    "model": "catalogo.country",
+    "pk": 53,
+    "fields": {
+      "name": "Ghana",
+      "code": "GHA",
+      "flag_url": "https://flagcdn.com/gh.svg"
+    }
+  }
+]

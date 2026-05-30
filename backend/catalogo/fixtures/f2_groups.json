@@ -1,0 +1,98 @@
+[
+  {
+    "model": "catalogo.group",
+    "pk": 1,
+    "fields": {
+      "name": "A",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 2,
+    "fields": {
+      "name": "B",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 3,
+    "fields": {
+      "name": "C",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 4,
+    "fields": {
+      "name": "D",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 5,
+    "fields": {
+      "name": "E",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 6,
+    "fields": {
+      "name": "F",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 7,
+    "fields": {
+      "name": "G",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 8,
+    "fields": {
+      "name": "H",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 9,
+    "fields": {
+      "name": "I",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 10,
+    "fields": {
+      "name": "J",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 11,
+    "fields": {
+      "name": "K",
+      "stage": 1
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 12,
+    "fields": {
+      "name": "L",
+      "stage": 1
+    }
+  }
+]
