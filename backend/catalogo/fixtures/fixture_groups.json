@@ -1,0 +1,194 @@
+[
+  {
+    "model": "catalogo.group",
+    "pk": 1,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "A",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        2,
+        31,
+        19,
+        32
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 2,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "B",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        3,
+        33,
+        34,
+        35
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 3,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "C",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        5,
+        20,
+        36,
+        37
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 4,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "D",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        1,
+        39,
+        24,
+        38
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 5,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "E",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        6,
+        40,
+        41,
+        29
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 6,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "F",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        12,
+        18,
+        42,
+        43
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 7,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "G",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        13,
+        23,
+        26,
+        44
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 8,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "H",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        7,
+        45,
+        25,
+        15
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 9,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "I",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        8,
+        21,
+        47,
+        46
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 10,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "J",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        4,
+        48,
+        49,
+        50
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 11,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "K",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        11,
+        51,
+        52,
+        16
+      ]
+    }
+  },
+  {
+    "model": "catalogo.group",
+    "pk": 12,
+    "fields": {
+      "stage_name": "Fase de Grupos",
+      "name": "L",
+      "created_at": "2026-01-01T00:00:00Z",
+      "stage": 1,
+      "countries": [
+        10,
+        14,
+        53,
+        28
+      ]
+    }
+  }
+]

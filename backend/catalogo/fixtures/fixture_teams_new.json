@@ -1,0 +1,232 @@
+[
+  {
+    "model": "catalogo.team",
+    "pk": 31,
+    "fields": {
+      "name": "Sudáfrica",
+      "code": "RSA",
+      "flag_url": "https://flagcdn.com/za.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 32,
+    "fields": {
+      "name": "Chequia",
+      "code": "CZE",
+      "flag_url": "https://flagcdn.com/cz.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 33,
+    "fields": {
+      "name": "Bosnia y Herzegovina",
+      "code": "BIH",
+      "flag_url": "https://flagcdn.com/ba.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 34,
+    "fields": {
+      "name": "Qatar",
+      "code": "QAT",
+      "flag_url": "https://flagcdn.com/qa.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 35,
+    "fields": {
+      "name": "Suiza",
+      "code": "SUI",
+      "flag_url": "https://flagcdn.com/ch.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 36,
+    "fields": {
+      "name": "Haití",
+      "code": "HAI",
+      "flag_url": "https://flagcdn.com/ht.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 37,
+    "fields": {
+      "name": "Escocia",
+      "code": "SCO",
+      "flag_url": "https://flagcdn.com/gb-sct.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 38,
+    "fields": {
+      "name": "Turquía",
+      "code": "TUR",
+      "flag_url": "https://flagcdn.com/tr.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 39,
+    "fields": {
+      "name": "Paraguay",
+      "code": "PAR",
+      "flag_url": "https://flagcdn.com/py.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 40,
+    "fields": {
+      "name": "Curazao",
+      "code": "CUW",
+      "flag_url": "https://flagcdn.com/cw.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 41,
+    "fields": {
+      "name": "Costa de Marfil",
+      "code": "CIV",
+      "flag_url": "https://flagcdn.com/ci.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 42,
+    "fields": {
+      "name": "Suecia",
+      "code": "SWE",
+      "flag_url": "https://flagcdn.com/se.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 43,
+    "fields": {
+      "name": "Túnez",
+      "code": "TUN",
+      "flag_url": "https://flagcdn.com/tn.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 44,
+    "fields": {
+      "name": "Nueva Zelanda",
+      "code": "NZL",
+      "flag_url": "https://flagcdn.com/nz.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 45,
+    "fields": {
+      "name": "Cabo Verde",
+      "code": "CPV",
+      "flag_url": "https://flagcdn.com/cv.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 46,
+    "fields": {
+      "name": "Noruega",
+      "code": "NOR",
+      "flag_url": "https://flagcdn.com/no.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 47,
+    "fields": {
+      "name": "Iraq",
+      "code": "IRQ",
+      "flag_url": "https://flagcdn.com/iq.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 48,
+    "fields": {
+      "name": "Argelia",
+      "code": "ALG",
+      "flag_url": "https://flagcdn.com/dz.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 49,
+    "fields": {
+      "name": "Austria",
+      "code": "AUT",
+      "flag_url": "https://flagcdn.com/at.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 50,
+    "fields": {
+      "name": "Jordania",
+      "code": "JOR",
+      "flag_url": "https://flagcdn.com/jo.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 51,
+    "fields": {
+      "name": "DR Congo",
+      "code": "COD",
+      "flag_url": "https://flagcdn.com/cd.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 52,
+    "fields": {
+      "name": "Uzbekistán",
+      "code": "UZB",
+      "flag_url": "https://flagcdn.com/uz.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalogo.team",
+    "pk": 53,
+    "fields": {
+      "name": "Ghana",
+      "code": "GHA",
+      "flag_url": "https://flagcdn.com/gh.svg",
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  }
+]
